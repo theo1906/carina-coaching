@@ -1,0 +1,629 @@
+'use client';
+
+import { useState } from 'react';
+import {
+  ClockIcon,
+  FireIcon,
+  SparklesIcon,
+  HeartIcon,
+  UserGroupIcon,
+  ShieldCheckIcon,
+  UserIcon,
+  LightBulbIcon
+} from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
+
+export default function EssstorungPage() {
+  return (
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-pink-50">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+          <div className="absolute top-1/3 -right-20 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Essstörung Coaching
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "HEILUNG DURCH KÖRPERLICHE PRÄSENZ UND INNERE TRANSFORMATION"
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Ist Essstörungscoaching das Richtige für Dich? */}
+      <section className="py-24 bg-gradient-to-br from-white to-pink-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 to-transparent opacity-10"></div>
+        <div className="absolute -top-24 -right-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -bottom-24 -left-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute top-1/3 -right-8 w-24 h-24 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Ist Essstörungscoaching das Richtige für Dich?
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Finde heraus, ob unser Coaching der Schlüssel zu Deiner Heilung sein könnte"
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Column: Wenn du... */}
+            <div>
+              <h3 className="text-2xl font-semibold text-pink-600 mb-6">Wenn du...</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <ShieldCheckIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...stark mit deinem Körper und Essen kämpfst</h4>
+                    <p className="text-gray-600">Ob Bulimie, Anorexie oder Binge Eating - wenn du dich in einem ständigen Kampf mit deinem Körper und Essen befindest.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <UserGroupIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...bereit bist, tiefere Ursachen zu erkunden</h4>
+                    <p className="text-gray-600">Wenn du den Mut hast, die tieferliegenden Ursachen deiner Essstörung zu erkennen und zu heilen.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <HeartIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...bereit bist, dich selbst zu lieben</h4>
+                    <p className="text-gray-600">Wenn du bereit bist, den Weg zu deiner Selbstakzeptanz und Körperliebe einzuschlagen.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Right Column: Dann ist unser Coaching... */}
+            <div>
+              <h3 className="text-2xl font-semibold text-pink-600 mb-6">Dann ist unser Coaching...</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <SparklesIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...ein Weg zur Heilung</h4>
+                    <p className="text-gray-600">Wir begleiten dich auf deinem Weg zur Heilung durch körperliche Präsenz und innere Transformation.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <LightBulbIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...ein Prozess der Selbstentdeckung</h4>
+                    <p className="text-gray-600">Du wirst lernen, deinen Körper zu spüren und zu verstehen, um eine neue Beziehung zu ihm aufzubauen.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <UserIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...ein Schritt zur Freiheit</h4>
+                    <p className="text-gray-600">Du wirst lernen, deinen Körper zu spüren und zu verstehen, um eine neue Beziehung zu ihm aufzubauen.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 1: My Story */}
+      <section className="py-24 bg-gradient-to-br from-white to-pink-100 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-transparent opacity-10"></div>
+        <div className="absolute -top-24 -right-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -bottom-24 -left-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute top-1/3 -right-8 w-24 h-24 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Meine Geschichte
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Ein Weg von Schmerz zur Freiheit"
+            </p>
+          </div>
+
+          {/* Timeline Visualization */}
+          <div className="relative">
+            {/* Vertical timeline line */}
+            <div className="absolute inset-y-0 left-1/2 w-px bg-pink-200" />
+            
+            {/* Timeline content */}
+            <div className="relative">
+              <div className="grid grid-rows-6 gap-12">
+                {[
+                  {
+                    title: '1996 - Der Anfang',
+                    icon: ClockIcon,
+                    content: 'Die Essstörung beginnt - ein ständiger Kampf mit dem eigenen Körper und Essen',
+                    color: 'text-pink-600',
+                    side: 'right'
+                  },
+                  {
+                    title: '2008 - Erste Versuche',
+                    icon: HeartIcon,
+                    content: 'Erste Therapieversuche - aber der Schmerz bleibt',
+                    color: 'text-purple-600',
+                    side: 'left'
+                  },
+                  {
+                    title: '2012 - Tiefster Punkt',
+                    icon: FireIcon,
+                    content: 'Der tiefste Punkt - Verzweiflung und Sucht',
+                    color: 'text-red-600',
+                    side: 'right'
+                  },
+                  {
+                    title: '2014 - Erste Erkenntnisse',
+                    icon: LightBulbIcon,
+                    content: 'Entdeckung der tiefen Ursachen - der Anfang der Heilung',
+                    color: 'text-yellow-600',
+                    side: 'left'
+                  },
+                  {
+                    title: '2016 - Der Durchbruch',
+                    icon: SparklesIcon,
+                    content: 'Symptomfrei - Beginn der neuen Lebensphase',
+                    color: 'text-green-600',
+                    side: 'right'
+                  },
+                  {
+                    title: '2022 - Berufung',
+                    icon: UserGroupIcon,
+                    content: 'Beginn der Arbeit als Coach - Helfen und Heilen',
+                    color: 'text-blue-600',
+                    side: 'left'
+                  }
+                ].map((phase, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    className="relative"
+                  >
+                    <div className="flex items-center">
+                      <div className="absolute left-1/2 transform -translate-x-1/2">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center">
+                          <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="w-full h-full"
+                          >
+                            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                              {phase.icon && <phase.icon className="w-5 h-5" />}
+                            </div>
+                          </motion.div>
+                        </div>
+                      </div>
+                      <div className={`flex-1 ${phase.side === 'right' ? 'flex-row-reverse' : 'flex-row'} justify-end`}>
+                        <div className="relative">
+                          <div className={`absolute ${phase.side === 'left' ? 'left-1/2 transform translate-x-1/2' : 'right-1/2 transform -translate-x-1/2'} top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center`}>
+                            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+                              <div className="w-4 h-4 rounded-full bg-pink-600" />
+                            </div>
+                          </div>
+                          <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            className="p-3 bg-white/90 rounded-xl shadow-sm border border-pink-100 max-w-[600px] ${phase.side === 'right' ? 'right-0 ml-auto' : 'left-0'}"
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-sm text-gray-500">{phase.title}</span>
+                            </div>
+                            <h3 className={`text-xl font-medium ${phase.color} mb-2`}>{phase.title}</h3>
+                            <p className="text-gray-700">{phase.content}</p>
+                          </motion.div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Ist Essstörungscoaching das Richtige für Dich? */}
+      <section className="py-24 bg-gradient-to-br from-white to-pink-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 to-transparent opacity-10"></div>
+        <div className="absolute -top-24 -right-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -bottom-24 -left-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute top-1/3 -right-8 w-24 h-24 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Ist Essstörungscoaching das Richtige für Dich?
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Finde heraus, ob unser Coaching der Schlüssel zu Deiner Heilung sein könnte"
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Column: Wenn du... */}
+            <div>
+              <h3 className="text-2xl font-semibold text-pink-600 mb-6">Wenn du...</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <ShieldCheckIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...stark mit deinem Körper und Essen kämpfst</h4>
+                    <p className="text-gray-600">Ob Bulimie, Anorexie oder Binge Eating - wenn du dich in einem ständigen Kampf mit deinem Körper und Essen befindest.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <UserGroupIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...bereit bist, tiefere Ursachen zu erkunden</h4>
+                    <p className="text-gray-600">Wenn du den Mut hast, die tieferliegenden Ursachen deiner Essstörung zu erkennen und zu heilen.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <HeartIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...bereit bist, dich selbst zu lieben</h4>
+                    <p className="text-gray-600">Wenn du bereit bist, den Weg zu deiner Selbstakzeptanz und Körperliebe einzuschlagen.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Right Column: Dann ist unser Coaching... */}
+            <div>
+              <h3 className="text-2xl font-semibold text-pink-600 mb-6">Dann ist unser Coaching...</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <SparklesIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...ein Weg zur Heilung</h4>
+                    <p className="text-gray-600">Wir begleiten dich auf deinem Weg zur Heilung durch körperliche Präsenz und innere Transformation.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <LightBulbIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...ein Prozess der Selbstentdeckung</h4>
+                    <p className="text-gray-600">Du wirst lernen, deinen Körper zu spüren und zu verstehen, um eine neue Beziehung zu ihm aufzubauen.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <UserIcon className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">...ein Schritt zur Freiheit</h4>
+                    <p className="text-gray-600">Du wirst lernen, deinen Körper zu spüren und zu verstehen, um eine neue Beziehung zu ihm aufzubauen.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Mit wem ich arbeite */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-pink-50 opacity-10"></div>
+        <div className="absolute -top-24 -right-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -bottom-24 -left-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Mit wem ich arbeite
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Ich begleite dich auf deinem Weg zur Heilung und Freiheit"
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Frauen mit Essstörungen',
+                icon: UserGroupIcon,
+                content: 'Ich spezialisiere mich auf die Begleitung von Frauen, die mit Essstörungen kämpfen und ihren Weg zur Heilung finden möchten.',
+                color: 'text-pink-600'
+              },
+              {
+                title: 'Traumabegleitete Heilung',
+                icon: ShieldCheckIcon,
+                content: 'Ich arbeite mit Frauen, die ihre Essstörungen im Kontext von Traumatisierungen verstehen möchten und heilen wollen.',
+                color: 'text-purple-600'
+              },
+              {
+                title: 'Körperliche Präsenz',
+                icon: UserIcon,
+                content: 'Ich begleite Frauen, die lernen möchten, ihren Körper zu spüren, zu akzeptieren und zu lieben.',
+                color: 'text-green-600'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white/90 p-6 rounded-xl shadow-sm border border-pink-100"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className={`text-xl font-medium ${item.color}`}>{item.title}</h3>
+                </div>
+                <p className="text-gray-700">{item.content}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Mein Ansatz */}
+      <section className="py-24 bg-gradient-to-br from-white to-pink-100 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-transparent opacity-10"></div>
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Mein Ansatz
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Heilung durch innere Transformation und körperliche Präsenz"
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                title: 'Körperliche Präsenz',
+                content: 'Ich lehre dich, deinen Körper zu spüren, zu verstehen und zu lieben. Wir arbeiten mit bewusstseinsbasierten Übungen und Körperarbeit.',
+                color: 'text-pink-600'
+              },
+              {
+                title: 'Trauma-Bewusstheit',
+                content: 'Wir erkennen und integrieren tiefere Ursachen deiner Essstörung. Ich begleite dich sicher durch den Prozess der Heilung.',
+                color: 'text-purple-600'
+              },
+              {
+                title: 'Emotionale Befreiung',
+                content: 'Wir lernen, deine Emotionen zu spüren, zu akzeptieren und zu integrieren. Du wirst lernen, sie als wichtige Botschaften zu verstehen.',
+                color: 'text-green-600'
+              },
+              {
+                title: 'Selbstliebe und Akzeptanz',
+                content: 'Wir arbeiten an der Entwicklung einer liebevollen Beziehung zu dir selbst und deinem Körper. Du wirst lernen, dich zu akzeptieren und zu schätzen.',
+                color: 'text-blue-600'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white/90 p-6 rounded-xl shadow-sm border border-pink-100"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center">
+                    <div className="w-6 h-6 rounded-full bg-white" />
+                  </div>
+                  <h3 className={`text-xl font-medium ${item.color}`}>{item.title}</h3>
+                </div>
+                <p className="text-gray-700">{item.content}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Körperliche Präsenz */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-pink-50 opacity-10"></div>
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Körperliche Präsenz
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Der Schlüssel zur Heilung liegt in deinem Körper"
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Bewusstseinsbasierte Übungen',
+                icon: UserIcon,
+                content: 'Lerne, deinen Körper zu spüren und zu verstehen. Wir arbeiten mit speziellen Übungen zur körperlichen Präsenz.',
+                color: 'text-pink-600'
+              },
+              {
+                title: 'Körperliche Heilung',
+                icon: HeartIcon,
+                content: 'Wir integrieren körperliche Heilungsmethoden, die dir helfen, deine Essstörung auf körperlicher Ebene zu überwinden.',
+                color: 'text-purple-600'
+              },
+              {
+                title: 'Selbstfürsorge',
+                icon: ShieldCheckIcon,
+                content: 'Du lernst, deinen Körper zu lieben und zu pflegen. Wir entwickeln eine liebevolle Beziehung zu deinem Körper.',
+                color: 'text-green-600'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white/90 p-6 rounded-xl shadow-sm border border-pink-100"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className={`text-xl font-medium ${item.color}`}>{item.title}</h3>
+                </div>
+                <p className="text-gray-700">{item.content}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Leben nach der Genesung */}
+      <section className="py-24 bg-gradient-to-br from-white to-pink-100 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-transparent opacity-10"></div>
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Leben nach der Genesung
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Ein Leben in Freiheit und Verbundenheit"
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="bg-white/90 p-6 rounded-xl shadow-sm border border-pink-100">
+              <h3 className="text-xl font-medium text-pink-600 mb-4">Was du erwarten kannst:</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <SparklesIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Ein neues Verhältnis zu Essen und Körper</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <HeartIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Tiefe Selbstakzeptanz und Selbstliebe</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <ShieldCheckIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Sicherheit in deinem Körper</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <UserGroupIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Verbundenheit mit dir selbst und anderen</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white/90 p-6 rounded-xl shadow-sm border border-pink-100">
+              <h3 className="text-xl font-medium text-pink-600 mb-4">Dein neues Leben:</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <UserIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Körperliche Präsenz und Bewusstsein</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <FireIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Lebensenergie und Vitalität</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <ClockIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Freiheit von Essstörungssymptomen</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <SparklesIcon className="w-5 h-5 text-pink-500" />
+                  <span className="text-gray-700">Leben in deiner vollen Stärke</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Arbeiten Sie mit mir */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-pink-50 opacity-10"></div>
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
+              Arbeiten Sie mit mir
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
+            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
+              "Beginnen Sie Ihren Weg zur Heilung"
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Individuelles Coaching',
+                icon: UserIcon,
+                content: 'Personalisierte Begleitung auf Ihrem Weg zur Heilung',
+                color: 'text-pink-600'
+              },
+              {
+                title: 'Körperliche Präsenz Training',
+                icon: UserIcon,
+                content: 'Intensive Workshops zur körperlichen Präsenz',
+                color: 'text-purple-600'
+              },
+              {
+                title: 'Trauma-Bewusstheit',
+                icon: ShieldCheckIcon,
+                content: 'Spezialisierte Begleitung im Kontext von Traumatisierungen',
+                color: 'text-green-600'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white/90 p-6 rounded-xl shadow-sm border border-pink-100 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className={`text-xl font-medium ${item.color}`}>{item.title}</h3>
+                </div>
+                <p className="text-gray-700">{item.content}</p>
+                <button className="mt-4 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full hover:opacity-90 transition-opacity">
+                  Erfahren Sie mehr
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
