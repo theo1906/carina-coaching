@@ -1,5 +1,11 @@
 'use client';
 
+export function generateMetadata({ params }: { params: any }) {
+  return {
+    title: 'Mein Weg | Carina Göb - Life & Mindset Coaching',
+  };
+}
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
