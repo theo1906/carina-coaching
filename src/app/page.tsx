@@ -7,12 +7,14 @@ import AppShowcase from '@/components/AppShowcase';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import { ClockIcon, HeartIcon, LightBulbIcon, UserGroupIcon, ShieldCheckIcon, UserIcon, SparklesIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import RaumFuerDichSection from '@/components/RaumFuerDichSection';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <div className="relative z-10 w-full">
         <Hero />
+        <RaumFuerDichSection />
         
         <div className="relative">
           {/* Wer bin ich Section */}

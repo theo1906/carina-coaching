@@ -19,18 +19,18 @@ const navigation: NavigationItem[] = [
     className: 'hover:text-pink-600 transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium'
   },
   { 
-    name: 'Dienstleistungen', 
+    name: 'Services', 
     href: '/dienstleistungen',
     className: 'group relative hover:text-pink-600 transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium',
     submenu: [
       { 
-        name: 'Essstörung Coaching', 
-        href: '/dienstleistungen/essstorung',
+        name: 'Spiritual Life Coaching', 
+        href: '/dienstleistungen/spiritual',
         className: 'block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md transition-colors duration-150'
       },
       { 
-        name: 'Spiritual Life Coaching', 
-        href: '/dienstleistungen/spiritual',
+        name: 'Coaching für Essstörungen', 
+        href: '/dienstleistungen/essstorung',
         className: 'block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md transition-colors duration-150'
       },
     ]
@@ -52,11 +52,7 @@ const navigation: NavigationItem[] = [
       },
     ]
   },
-  { 
-    name: 'Blog', 
-    href: '/blog',
-    className: 'hover:text-pink-600 transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium'
-  },
+
 ];
 
 const NavItem = memo(({ name, href, submenu, className }: NavigationItem) => {

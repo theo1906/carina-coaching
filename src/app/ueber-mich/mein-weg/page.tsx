@@ -1,14 +1,177 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { SparklesIcon, HeartIcon, LightBulbIcon, UserGroupIcon, CheckIcon, ArrowRightIcon, ChevronRightIcon, UserCircleIcon, AcademicCapIcon, BookOpenIcon, ClockIcon, FireIcon, ArrowUpRightIcon, GlobeAltIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { 
+  SparklesIcon, 
+  HeartIcon, 
+  LightBulbIcon, 
+  UserGroupIcon, 
+  CheckIcon, 
+  ArrowRightIcon, 
+  UserCircleIcon, 
+  AcademicCapIcon, 
+  BookOpenIcon, 
+  ClockIcon, 
+  FireIcon, 
+  ArrowUpRightIcon, 
+  GlobeAltIcon, 
+  MapPinIcon 
+} from '@heroicons/react/24/outline';
+import RaumFuerDichSection from '@/components/RaumFuerDichSection';
+import VisionCollapsible from '@/components/VisionCollapsible';
+import CollapsibleSection from '@/components/CollapsibleSection';
+import MeineWendeSection from '@/components/MeineWendeSection';
+import MeineBerufungSection from '@/components/MeineBerufungSection';
+import SummaryCollapsible from '@/components/SummaryCollapsible';
+import TimelineCollapsible from '@/components/TimelineCollapsible';
 
-export const metadata = {
-  title: 'Mein Weg | Carina Göb - Life & Mindset Coaching',
-  description: 'Meine persönliche Reise von 20 Jahren Kampf zur spontanen Heilung und wie ich heute andere auf ihrem Weg begleite.',
-};
+interface TimelinePoint {
+  year: number;
+  y: number;
+  title: string;
+  description: string;
+  emotionalValue: number;
+  isSplit: boolean;
+  isPositive?: boolean;
+  isExpanded?: boolean;
+  [key: string]: any; // For any additional properties
+}
+
+const initialTimelinePoints: TimelinePoint[] = [
+  { 
+    year: 1989, 
+    y: 280, 
+    title: 'Kindheitstrauma', 
+    description: 'Ich lief um mein Leben, nachdem ein Spiel gefährlich wurde. Die Drohung meines Elternteils ließ mich glauben: Wenn ich mich zeige, bin ich in Lebensgefahr.',
+    emotionalValue: -5,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 1996, 
+    y: 300, 
+    title: 'Bulimie beginnt', 
+    description: 'Nach meinem ersten Rausch entdeckte ich das Erbrechen als Ventil. Die Bulimie wurde zu meinem täglichen Begleiter, verborgen hinter tiefer Scham.',
+    emotionalValue: -4,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2001, 
+    y: 260, 
+    title: 'Kontrollverlust', 
+    description: 'Ich verlor völlig die Kontrolle – Autounfälle, Alkoholprobleme und völlige emotionale Isolation.',
+    emotionalValue: -3,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2003, 
+    y: 220, 
+    title: 'Flucht nach Australien', 
+    description: 'Die Reise fühlte sich an wie Freiheit, doch gleichzeitig rutschte ich in Drogen ab und erlebte einen sexuellen Übergriff. Ich kehrte körperlich und seelisch ausgelaugt zurück.',
+    emotionalValue: -2,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2009, 
+    y: 140, 
+    title: 'Erste Liebe', 
+    description: 'Ich verliebte mich tief und fühlte mich zum ersten Mal gesehen, gehalten und bedingungslos geliebt.',
+    emotionalValue: 2,
+    isSplit: true,
+    isPositive: true,
+    isExpanded: false
+  },
+  { 
+    year: 2009, 
+    y: 300, 
+    title: 'Versteckte Wahrheit', 
+    description: 'Trotz der Liebe verbarg ich weiterhin meine Bulimie – aus Angst und Scham. Ich lebte in einer Co-Abhängigkeit und zeigte nicht mein wahres Ich.',
+    emotionalValue: -3,
+    isSplit: true,
+    isPositive: false,
+    isExpanded: false
+  },
+  { 
+    year: 2014, 
+    y: 340, 
+    title: 'Zusammenbruch', 
+    description: 'Die Trennung kam völlig unerwartet. Kurz darauf verlor ich meinen Job und unser Zuhause – alles brach gleichzeitig zusammen.',
+    emotionalValue: -5,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2015, 
+    y: 160, 
+    title: 'Entscheidung zur Heilung', 
+    description: 'Am Strand in Australien fasste ich den Entschluss: Ich werde heilen, bewusst essen und unabhängig leben – oder gar nicht mehr zurückkehren.',
+    emotionalValue: 0,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2016, 
+    y: 140, 
+    title: 'Erste Schritte', 
+    description: 'Ich stellte mich meiner größten Angst und zog in meine erste selbst finanzierte Wohnung. Es war beängstigend – aber auch befreiend.',
+    emotionalValue: 1,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2018, 
+    y: 120, 
+    title: 'Wahrheit leben', 
+    description: 'Ich trennte mich aus Selbstachtung und erzählte meinen Eltern zum ersten Mal von meiner Essstörung. Ich gab Scham und Schuld zurück.',
+    emotionalValue: 2,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2019, 
+    y: 100, 
+    title: 'Heilung teilen', 
+    description: 'In einem Inner-Child-Workshop auf Bali teilte ich zum ersten Mal nach 23 Jahren öffentlich meine Geschichte. Es war tief heilend.',
+    emotionalValue: 3,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2024, 
+    y: 80, 
+    title: 'Neuer Weg', 
+    description: 'Auf einer Reise wurde mir klar: Ich gehe raus aus dem Konzern und stehe sichtbar zu meiner Geschichte. Coaching ist mein Weg.',
+    emotionalValue: 4,
+    isSplit: false,
+    isExpanded: false
+  },
+  { 
+    year: 2025, 
+    y: 60, 
+    title: 'Carina Coaching', 
+    description: 'Ich gründete Carina Coaching, um Frauen bei ihrer Heilung zu begleiten – aus meiner eigenen Tiefe, Wahrheit und Erfahrung heraus.',
+    emotionalValue: 5,
+    isSplit: false,
+    isExpanded: false
+  }
+];
 
 export default function MeinWeg() {
+  const [timelinePoints, setTimelinePoints] = useState<TimelinePoint[]>(initialTimelinePoints);
+
+  const handleTimelinePointClick = (index: number) => {
+    const updatedPoints = timelinePoints.map((point, i) => ({
+      ...point,
+      // Toggle the clicked point and close all others
+      isExpanded: i === index ? !point.isExpanded : false
+    }));
+    setTimelinePoints(updatedPoints);
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -27,7 +190,7 @@ export default function MeinWeg() {
             </h1>
             <div className="w-24 h-1.5 bg-gradient-to-r from-rose-400 to-fuchsia-400 mx-auto mb-8 rounded-full"></div>
             <p className="text-2xl text-rose-800/90 italic max-w-3xl mx-auto mb-8 leading-relaxed">
-              "Wie ich lernte, meinem Körper zu vertrauen und zu meiner wahren Stärke fand"
+              "Wie ich gelernt habe, meinem Körper zu vertrauen und meine innere Kraft zu erwecken."
             </p>
           </div>
         </div>
@@ -42,11 +205,11 @@ export default function MeinWeg() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-rose-900 mb-4">
-              Von 20 Jahren Kampf zur spontanen Heilung
+              Spiritueller Life Coach und ED Recovery Coach
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-fuchsia-400 mx-auto mb-6"></div>
             <p className="text-xl text-rose-800/90 italic max-w-3xl mx-auto mb-8">
-              "WIE ICH DURCH MEINE EIGENE HEILUNG HEUTE ANDERE BEGLEITE"
+              "Von 20 Jahren Kampf zur Heilung über Nacht: WIE ICH DURCH MEINE EIGENE HEILUNG HEUTE ANDERE BEGLEITE"
             </p>
           </div>
           
@@ -54,39 +217,14 @@ export default function MeinWeg() {
             <div className="space-y-8 max-w-2xl mx-auto md:mx-0 md:pr-8">
               <div className="space-y-6">
                 <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight">
-                  Meine Reise von der Krise zur Erfüllung
+                  Meine Reise von der Krise in die Heilung und Selbstliebe
                 </h3>
                 
                 <div className="space-y-6 text-gray-700">
-                  <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 className="font-medium text-lg text-pink-600 mb-3 flex items-center">
-                      <UserCircleIcon className="h-5 w-5 mr-2" />
-                      Über mich
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      Als Spiritual Life & Recovery Coach aus München verbinde ich 20 Jahre persönliche Erfahrung mit Bulimie mit professionellem Coaching.
-                    </p>
-                  </div>
+                  <CollapsibleSection />
                   
-                  <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 className="font-medium text-lg text-pink-600 mb-3 flex items-center">
-                      <SparklesIcon className="h-5 w-5 mr-2" />
-                      Meine Wende
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      2016 erlebte ich eine spontane, vollständige Heilung – ein Wendepunkt, der mir zeigte, wie tiefgreifend echte Transformation sein kann.
-                    </p>
-                  </div>
-                  
-                  <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 className="font-medium text-lg text-pink-600 mb-3 flex items-center">
-                      <HeartIcon className="h-5 w-5 mr-2" />
-                      Meine Berufung
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      Heute lebe ich in tiefer Verbindung mit mir selbst und helfe anderen, ihre eigene Kraft und innere Weisheit wiederzuentdecken.
-                    </p>
-                  </div>
+                  <MeineWendeSection />
+                  <MeineBerufungSection />
                 </div>
               </div>
 
@@ -95,7 +233,7 @@ export default function MeinWeg() {
                   href="/buchen" 
                   className="group inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                 >
-                  <span className="relative z-10">Kostenlose Beratung vereinbaren</span>
+                  <span className="relative z-10">Kostenloses Erstgespräch vereinbaren</span>
                   <span className="ml-3 relative z-10">
                     <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -135,11 +273,11 @@ export default function MeinWeg() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-rose-400 mx-auto mb-6"></div>
             <p className="text-xl text-rose-800/90 italic max-w-2xl mx-auto mb-12">
-              "DEIN KÖRPER WEISS DEN WEG"
+              "DEIN KÖRPER KENNT DEN WEG"
             </p>
             
             <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Heilung geschieht nicht nur im Kopf – sie geschieht durch den Körper. In meinem Coaching arbeiten wir mit Embodiment: bewusste Präsenz im Körper, Entwicklung von Körpervertrauen und die Öffnung für innere Heilung.
+              Heilung geschieht nicht alleine mit Entschlossenheit im Kopf – sie geschieht vor allem über den Körper und im Nervensystem. In meinem Coaching arbeiten wir mit Embodiment: bewusste Präsenz im Körper, Entwicklung von Körpervertrauen und die Öffnung für innere Heilung.
             </p>
           </div>
           
@@ -147,37 +285,37 @@ export default function MeinWeg() {
             {[
               {
                 title: 'Körperwahrnehmung',
-                description: 'Deine Körpersignale wieder bewusst wahrnehmen und verstehen lernen',
+                description: 'Deine Körpersignale wieder bewusst wahrnehmen und verstehen lernen durch aktives Hinfühlen.',
                 icon: <HeartIcon className="h-8 w-8 text-rose-600" />,
                 color: 'bg-rose-50'
               },
               {
                 title: 'Emotionale Resilienz',
-                description: 'Stärkung deiner emotionalen Widerstandskraft und inneren Stabilität',
+                description: 'Stärkung deiner emotionalen Widerstandskraft, deiner Fähigkeit zur Selbstregulierung und inneren Stabilität.',
                 icon: <SparklesIcon className="h-8 w-8 text-purple-600" />,
                 color: 'bg-purple-50'
               },
               {
                 title: 'Grenzen setzen',
-                description: 'Gesunde Grenzen erkennen und selbstbewusst kommunizieren',
+                description: 'Gesunde Grenzen erkennen und selbstbewusst kommunizieren.',
                 icon: <UserCircleIcon className="h-8 w-8 text-fuchsia-600" />,
                 color: 'bg-fuchsia-50'
               },
               {
                 title: 'Spirituelle Praxis',
-                description: 'Alltagstaugliche spirituelle Übungen für mehr Präsenz',
+                description: 'Alltagstaugliche, spirituelle Übungen für mehr Präsenz in deinem Körper und in deinem Leben.',
                 icon: <LightBulbIcon className="h-8 w-8 text-amber-600" />,
                 color: 'bg-amber-50'
               },
               {
                 title: 'Weibliche Kraft',
-                description: 'Deine weibliche Energie entdecken und authentisch leben',
+                description: 'Deine weibliche Energie entdecken und authentisch leben.',
                 icon: <AcademicCapIcon className="h-8 w-8 text-rose-600" />,
                 color: 'bg-rose-50'
               },
               {
                 title: 'Selbstführung',
-                description: 'Authentische Führung deines Lebens aus der inneren Weisheit heraus',
+                description: 'Dein Leben bewusst und aus deiner inneren Weisheit heraus gestalten.',
                 icon: <BookOpenIcon className="h-8 w-8 text-purple-600" />,
                 color: 'bg-purple-50'
               }
@@ -195,15 +333,11 @@ export default function MeinWeg() {
             ))}
           </div>
           
-          <div className="mt-16 text-center">
-            <p className="text-gray-700 max-w-3xl mx-auto mb-8 text-lg">
-              Diese Verbindung zu dir selbst ermöglicht echte, nachhaltige Veränderung – Schritt für Schritt in deinem Tempo.
-            </p>
-          </div>
+          <SummaryCollapsible />
         </div>
       </section>
 
-      {/* Section 3: Meine Heilungsreise - Interactive Timeline */}
+      {/* Section 3: Meine Quelle im Coaching - Meine Erfahrung - Interactive Timeline */}
       <section className="relative py-16 md:py-24 bg-gradient-to-b from-white to-rose-50 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-rose-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
@@ -213,7 +347,7 @@ export default function MeinWeg() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-rose-900 mb-4">
-              Meine Heilungsreise
+              Meine Quelle im Coaching - Meine Erfahrung
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-fuchsia-400 mx-auto mb-6"></div>
             <p className="text-xl text-rose-800/90 italic max-w-3xl mx-auto">
@@ -238,9 +372,19 @@ export default function MeinWeg() {
                   <line x1="0" y1="200" x2="800" y2="200" stroke="#F3F4F6" strokeWidth="1" />
                   <line x1="0" y1="320" x2="800" y2="320" stroke="#F3F4F6" strokeWidth="1" />
                   
-                  {/* Data Line - Adjusted y-coordinates for better emotional representation */}
+                  {/* Original connecting line */}
                   <polyline 
-                    points="0,280 100,260 200,320 300,360 400,300 500,200 600,100 700,40 800,20" 
+                    points={timelinePoints
+                      .sort((a, b) => a.year - b.year) // Ensure points are in chronological order
+                      .map(point => {
+                        const minYear = 1989;
+                        const maxYear = 2025;
+                        const range = maxYear - minYear;
+                        const x = ((point.year - minYear) / range) * 800;
+                        return `${x},${point.y}`;
+                      })
+                      .join(' ')
+                    }
                     fill="none" 
                     stroke="url(#line-gradient)" 
                     strokeWidth="4"
@@ -248,76 +392,116 @@ export default function MeinWeg() {
                     strokeLinejoin="round"
                     className="transition-all duration-300"
                   />
-                  
-                  {/* Data Points - Adjusted y-coordinates to show progression */}
-                  {[
-                    { x: 0, y: 280, label: 'Geburt', description: 'Der Anfang meiner Reise' },
-                    { x: 100, y: 260, label: 'Kindheit', description: 'Erste Herausforderungen' },
-                    { x: 200, y: 320, label: 'Jugend', description: 'Beginn der Essstörung' },
-                    { x: 300, y: 360, label: 'Erwachsen', description: 'Tiefpunkt erreicht' },
-                    { x: 400, y: 300, label: 'Wendepunkt', description: 'Erste Schritte zur Heilung' },
-                    { x: 500, y: 200, label: 'Wachstum', description: 'Neue Wege entdecken' },
-                    { x: 600, y: 100, label: 'Heilung', description: 'Selbstakzeptanz wächst' },
-                    { x: 700, y: 40, label: 'Durchbruch', description: 'Neue Perspektiven' },
-                    { x: 800, y: 20, label: 'Heute', description: 'In meiner Kraft angekommen' }
-                  ].map((point, index) => (
-                    <g key={index} className="group cursor-pointer transition-all duration-200 hover:opacity-100" style={{ opacity: 0.8 }}>
-                      <circle 
-                        cx={point.x} 
-                        cy={point.y} 
-                        r="6" 
-                        fill={index === 8 ? "#EC4899" : "#9CA3AF"}
-                        className="transition-all duration-200 group-hover:r-8 group-hover:fill-rose-500"
-                      />
-                      <text 
-                        x={point.x} 
-                        y={point.y - 15} 
-                        textAnchor="middle" 
-                        className="text-xs font-medium text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                      >
-                        {point.label}
-                      </text>
-                      <foreignObject 
-                        x={point.x - 120} 
-                        y={point.y + 25} 
-                        width="240" 
-                        height="100"
-                        className="pointer-events-none"
-                      >
-                        <div className="text-center transform transition-all duration-300 ease-out group-hover:scale-100 scale-95">
-                          <div className="inline-block bg-white px-5 py-3 rounded-xl shadow-xl border-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-                            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45"></div>
-                            <p className="text-base font-semibold text-rose-700 mb-1">{point.label}</p>
-                            <div className="w-10 h-0.5 bg-gradient-to-r from-rose-200 to-fuchsia-200 mx-auto my-2"></div>
-                            <p className="text-sm text-gray-600 leading-tight">{point.description}</p>
+              
+              {/* Data Points with emotional values */}
+              {timelinePoints.map((point, index) => {
+                // Calculate x position based on year (1989-2025)
+                const minYear = 1989;
+                const maxYear = 2025;
+                const range = maxYear - minYear;
+                const x = ((point.year - minYear) / range) * 800;
+                    
+                    return (
+                      <g key={`${point.year}-${point.isSplit ? (point.isPositive ? 'pos' : 'neg') : 'main'}`} 
+                         className="pointer-events-none group transition-all duration-200" 
+                         style={{ opacity: 0.8 }}>
+                        <circle 
+                          cx={x} 
+                          cy={point.y} 
+                          r={point.isExpanded ? 8 : 6} 
+                          fill={point.emotionalValue >= 0 ? "#EC4899" : "#8B5CF6"}
+                          className={`transition-all duration-200 cursor-pointer hover:r-8 ${point.isExpanded ? 'ring-4 ring-opacity-30' : ''} ${
+                            point.emotionalValue >= 0 ? 'hover:fill-rose-500' : 'hover:fill-violet-500'
+                          }`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleTimelinePointClick(index);
+                          }}
+                          style={{ pointerEvents: 'auto' }}
+                        />
+                        <text 
+                          x={x} 
+                          y={point.y - 15} 
+                          textAnchor="middle" 
+                          className="text-xs font-medium text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        >
+                            {point.year}
+                          </text>
+                        
+                        {/* Tooltip */}
+                        <foreignObject 
+                          x={x - 150} 
+                          y={point.y + (point.isSplit && !point.isPositive ? 40 : 25)} 
+                          width="300" 
+                          height="auto"
+                          className="pointer-events-auto z-20"
+                        >
+                          <div className="text-left transform transition-all duration-200 ease-out group-hover:scale-100 scale-95">
+                            <div className={`inline-block bg-white px-4 py-3 rounded-lg shadow-lg border border-gray-100 ${point.isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-all duration-200 transform ${point.isExpanded ? 'translate-y-0' : 'translate-y-1'}`}>
+                              <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-t border-l border-gray-100 transform rotate-45 z-30"></div>
+                              <div className="relative z-40 bg-white">
+                                <p className="text-sm font-medium text-gray-800">
+                                  {point.title} ({point.year})
+                                </p>
+                                
+                                {/* Collapsible description */}
+                                <div className={`mt-1 overflow-hidden transition-all duration-200 ${point.isExpanded ? 'max-h-96' : 'max-h-0'}`}>
+                                  <div className="pt-2">
+                                    <p className="text-sm text-gray-600">{point.description}</p>
+                                  </div>
+                                </div>
+                                
+                                <button 
+                                  className="mt-1 text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleTimelinePointClick(index);
+                                  }}
+                                >
+                                  {point.isExpanded ? 'Weniger' : 'Mehr'}
+                                </button>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </foreignObject>
-                    </g>
-                  ))}
+                        </foreignObject>
+                      </g>
+                    );
+                  })}
                   
                   <defs>
                     <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#EC4899" />
-                      <stop offset="100%" stopColor="#F43F5E" />
+                      <stop offset="0%" stopColor="#8B5CF6" />
+                      <stop offset="100%" stopColor="#EC4899" />
+                    </linearGradient>
+                    <linearGradient id="line-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#EC4899" stopOpacity="0.5" />
                     </linearGradient>
                   </defs>
                 </svg>
                 
                 {/* X-Axis Labels */}
                 <div className="absolute bottom-0 left-0 right-0 flex justify-between px-4">
-                  <span className="text-sm text-gray-600">Geburt</span>
-                  <span className="text-sm text-gray-500">Kindheit</span>
-                  <span className="text-sm text-gray-600">Jugend</span>
-                  <span className="text-sm text-gray-500">Erwachsen</span>
-                  <span className="text-sm text-rose-500 font-medium">Heute</span>
+                  <span className="text-sm text-gray-600">1989</span>
+                  <span className="text-sm text-gray-500">1996</span>
+                  <span className="text-sm text-gray-600">2001</span>
+                  <span className="text-sm text-gray-500">2003</span>
+                  <div className="flex flex-col items-center">
+                    <span className="text-sm text-rose-500 font-medium">2009</span>
+                    <span className="text-xs text-gray-400">Wendepunkt</span>
+                  </div>
+                  <span className="text-sm text-gray-500">2014</span>
+                  <span className="text-sm text-gray-600">2015</span>
+                  <span className="text-sm text-gray-500">2018</span>
+                  <span className="text-sm text-gray-600">2019</span>
+                  <span className="text-sm text-rose-500 font-medium">2025</span>
                 </div>
               </div>
             </div>
             
             <div className="mt-12 text-center">
               <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
-                Fahren Sie mit der Maus über die Punkte, um mehr über meine Reise zu erfahren.
+                Klicke auf die Punkte, um mehr über meine Heilungsreise zu erfahren.
               </p>
               <div className="mt-6 flex items-center justify-center space-x-4">
                 <div className="flex items-center">
@@ -334,13 +518,15 @@ export default function MeinWeg() {
           
           <div className="mt-16 text-center">
             <p className="text-gray-700 max-w-3xl mx-auto text-lg leading-relaxed">
-              Jede Reise hat ihren eigenen Rhythmus. Meine führte durch Höhen und Tiefen, bis ich schließlich meinen Weg zu wahrer Freiheit und Selbstakzeptanz fand.
+              Jede Reise hat ihren eigenen Rhythmus. Meine führte mich durch viele Höhen und Tiefen, bis ich meinen Weg in die Freiheit und Selbstliebe gefunden habe.
             </p>
             <div className="mt-8 flex justify-center space-x-4">
               <span className="inline-block w-3 h-3 rounded-full bg-rose-500"></span>
               <span className="inline-block w-3 h-3 rounded-full bg-rose-400"></span>
               <span className="inline-block w-3 h-3 rounded-full bg-rose-300"></span>
             </div>
+            
+            <TimelineCollapsible />
           </div>
         </div>
       </section>
@@ -401,12 +587,98 @@ export default function MeinWeg() {
               </p>
             </div>
           </div>
+          <VisionCollapsible />
         </div>
       </section>
 
-      {/* Section 5: Mein Weg zu dir */}
+      {/* Section 5: Mein Raum für dich */}
+      <RaumFuerDichSection />
+
+      {/* Section 6: Mein Ansatz */}
       <section className="relative py-20 md:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-rose-900 mb-4">
+              Mein ganzheitlicher Ansatz
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-fuchsia-400 to-rose-400 mx-auto mb-6"></div>
+            <p className="text-xl text-rose-800/90 italic">
+              "KÖRPER, GEIST, HERZ UND SEELE IM EINKLANG"
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                title: 'Körperarbeit',
+                description: 'zur Nervensystem-Regulation und Auflösung von gespeicherten Emotionen',
+                items: ['Somatische Körperarbeit', 'Rebalancing Massage', 'Atemarbeit'],
+                icon: <HeartIcon className="h-8 w-8 text-rose-500" />,
+                bgGradient: 'from-rose-50 to-rose-50',
+                textColor: 'text-rose-500',
+                iconColor: 'text-rose-500',
+                minHeight: 'min-h-[320px]',
+                contentClass: 'flex flex-col'
+              },
+              {
+                title: 'Geist & Psyche',
+                description: 'Systemisches Coaching: Aufstellungsarbeit innere Anteile',
+                items: [
+                  'Inquiry - Methode für tiefe, nachhaltige Prozesse der Selbstreflexion',
+                  'Mindfulness- und Präsenztraining'
+                ],
+                icon: <LightBulbIcon className="h-8 w-8 text-fuchsia-500" />,
+                bgGradient: 'from-fuchsia-50 to-fuchsia-50',
+                textColor: 'text-fuchsia-500',
+                iconColor: 'text-fuchsia-500',
+                minHeight: 'min-h-[320px]',
+                contentClass: 'flex flex-col justify-between h-full'
+              },
+              {
+                title: 'Spiritualität',
+                items: [
+                  'Geführte Meditation',
+                  'Bewusste Wahrnehmung: Verbindung zu dem Raum in dir, in dem du einfach nur bist',
+                  'Energiearbeit: Entwicklung von Bewusstsein für Energie-Intelligenz und -Zentren im Körper'
+                ],
+                icon: <SparklesIcon className="h-8 w-8 text-purple-500" />,
+                bgGradient: 'from-purple-50 to-purple-50',
+                textColor: 'text-purple-500',
+                iconColor: 'text-purple-500',
+                minHeight: 'min-h-[320px]',
+                contentClass: 'flex flex-col'
+              }
+            ].map((category, index) => (
+              <div key={index} className={`bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full ${category.minHeight || ''}`}>
+                <div className={`p-6 bg-gradient-to-r ${category.bgGradient} flex-1 flex flex-col`}>
+                  <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 mx-auto">
+                    {React.cloneElement(category.icon, { className: `h-8 w-8 ${category.iconColor}` })}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 text-center mb-2">{category.title}</h3>
+                  {category.description && (
+                    <p className="text-sm text-gray-600 text-center mb-3">{category.description}</p>
+                  )}
+                  <ul className={`${category.title === 'Geist & Psyche' ? 'space-y-0' : 'space-y-2'} ${category.contentClass || ''}`}>
+                    {category.items.map((item, i) => (
+                      <li key={i} className={`flex items-start ${i === 0 && category.title === 'Geist & Psyche' ? 'mt-8' : ''} ${i === 1 && category.title === 'Geist & Psyche' ? 'mt-1' : ''}`}>
+                        <CheckIcon className={`h-5 w-5 ${category.textColor} mr-2 flex-shrink-0 mt-0.5`} />
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: Mein Weg zu dir */}
+      <section className="relative py-20 md:py-28 bg-rose-50">
+        {/* Decorative elements */}
         <div className="absolute inset-0">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-rose-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-fuchsia-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
           <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-[0.02]"></div>
         </div>
         
@@ -426,7 +698,7 @@ export default function MeinWeg() {
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-2xl font-semibold text-rose-900 mb-4">Mein Versprechen an dich</h3>
                 <p className="text-gray-700 mb-4">
-                  Ich begegne dir mit der gleichen Ehrlichkeit und Verletzlichkeit, die ich mir selbst in meinem Heilungsprozess gewünscht hätte. Keine Floskeln, kein oberflächliches Coaching – sondern echte Begegnung auf Augenhöhe.
+                  Ich begegne dir mit dem Verständnis und Mitgefühl, das ich mir selbst in meinem Heilungsprozess gewünscht habe. Und mit meiner Liebe zur Wahrheit und für echte, ehrliche Begegnung auf Augenhöhe durch verkörperte Präsenz.
                 </p>
                 <p className="text-gray-700">
                   Ich teile nicht nur Wissen, sondern echte Erfahrung. Ich war dort, wo du vielleicht gerade stehst. Ich kenne die Ängste, die Zweifel, aber auch die Hoffnung, die dich hierher geführt hat.
@@ -442,7 +714,7 @@ export default function MeinWeg() {
                   href="/buchen" 
                   className="group inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-rose-500 to-fuchsia-500 hover:from-rose-600 hover:to-fuchsia-600 transition-all duration-300 transform hover:-translate-y-0.5"
                 >
-                  Termin vereinbaren
+                  kostenloses Erstgespräch vereinbaren
                   <ArrowRightIcon className="ml-2 -mr-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -453,16 +725,36 @@ export default function MeinWeg() {
                 <h3 className="text-2xl font-semibold text-rose-900 mb-4">Was dich erwartet</h3>
                 <ul className="space-y-4">
                   {[
-                    { title: 'Sichere Umgebung', text: 'Ein Raum ohne Bewertung, in dem du ganz du selbst sein kannst.' },
-                    { title: 'Individueller Ansatz', text: 'Kein Schema F – wir finden gemeinsam, was für dich funktioniert.' },
-                    { title: 'Praktische Werkzeuge', text: 'Konkrete Übungen, die du sofort in deinen Alltag integrieren kannst.' },
-                    { title: 'Nachhaltige Veränderung', text: 'Keine schnellen Lösungen, sondern echte, tiefgreifende Transformation.' }
+                    { 
+                      title: 'Sichere Umgebung', 
+                      text: 'Ein Raum ohne Bewertung, in dem du ganz du selbst sein kannst.' 
+                    },
+                    { 
+                      title: 'Individueller & holistischer Ansatz', 
+                      text: 'Kein Schema F – wir erforschen gemeinsam, was für dich funktioniert.' 
+                    },
+                    { 
+                      title: 'Spirituelle Entwicklung', 
+                      text: 'Tiefe Verbindung zu deinem wahren Selbst und höherem Bewusstsein' 
+                    },
+                    { 
+                      title: 'Körperarbeit', 
+                      text: 'Sanfte Methoden für tiefe körperliche Heilung und Wohlbefinden' 
+                    },
+                    { 
+                      title: 'Praktische Werkzeuge', 
+                      text: 'Konkrete Übungen, die du sofort in deinen Alltag integrieren kannst' 
+                    },
+                    { 
+                      title: 'Nachhaltige Veränderung', 
+                      text: 'Keine schnellen Lösungen, sondern echte, tiefgreifende Transformation' 
+                    }
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-3 mt-0.5">
-                        <CheckIcon className="h-4 w-4 text-rose-500" />
+                      <div className="flex-shrink-0 h-7 w-7 rounded-full bg-rose-100 flex items-center justify-center mr-3 mt-0.5">
+                        <CheckIcon className="h-3.5 w-3.5 text-rose-500" />
                       </div>
-                      <div>
+                      <div className="text-sm">
                         <h4 className="font-medium text-gray-900">{item.title}</h4>
                         <p className="text-gray-600">{item.text}</p>
                       </div>
@@ -475,174 +767,7 @@ export default function MeinWeg() {
         </div>
       </section>
 
-      {/* Section 5: Jenseits der Heilung - Redesigned */}
-      <section className="relative py-20 md:py-28 bg-white overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-rose-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-fuchsia-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
-          <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-[0.02]"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 text-sm font-semibold text-rose-700 bg-rose-50 rounded-full mb-4">Mein Weg</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-rose-900 mb-6">
-              Jenseits der Heilung
-            </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-fuchsia-400 to-rose-400 mx-auto mb-6 rounded-full"></div>
-            <p className="text-xl text-rose-700/90 italic max-w-2xl mx-auto">
-              "Heilung ist der Anfang, nicht das Ende"
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-8">
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-50 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-rose-100 to-fuchsia-100 flex items-center justify-center">
-                      <SparklesIcon className="h-6 w-6 text-rose-600" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Meine Reise des Lernens</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Meine persönliche Heilung war erst der Anfang. Danach begann mein Weg des Lernens, Lehrens und Erforschens. Internationale Erfahrungen in Bali, Italien und der Schweiz haben meinen Horizont erweitert und meinen Ansatz geprägt.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="bg-rose-50 p-4 rounded-xl border border-rose-100">
-                    <div className="flex items-center mb-3">
-                      <div className="h-8 w-8 rounded-full bg-rose-100 flex items-center justify-center mr-3">
-                        <CheckIcon className="h-4 w-4 text-rose-600" />
-                      </div>
-                      <h4 className="font-medium text-gray-900">Körperarbeit</h4>
-                    </div>
-                    <p className="text-sm text-gray-600 ml-11">Sanfte Methoden für tiefe körperliche Heilung und Wohlbefinden</p>
-                  </div>
-                  
-                  <div className="bg-fuchsia-50 p-4 rounded-xl border border-fuchsia-100">
-                    <div className="flex items-center mb-3">
-                      <div className="h-8 w-8 rounded-full bg-fuchsia-100 flex items-center justify-center mr-3">
-                        <CheckIcon className="h-4 w-4 text-fuchsia-600" />
-                      </div>
-                      <h4 className="font-medium text-gray-900">Spirituelle Entwicklung</h4>
-                    </div>
-                    <p className="text-sm text-gray-600 ml-11">Tiefe Verbindung zu deinem inneren Selbst und höherem Bewusstsein</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="lg:col-span-5 relative">
-              <div className="bg-gradient-to-br from-rose-50 to-fuchsia-50 p-8 rounded-2xl h-full flex items-center transform transition-all duration-300 hover:shadow-lg">
-                <div className="text-center w-full">
-                  <div className="relative">
-                    <div className="absolute -top-6 -right-6 w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center">
-                      <HeartIcon className="h-6 w-6 text-rose-600" />
-                    </div>
-                      <div className="h-48 w-48 bg-gradient-to-br from-rose-100 to-fuchsia-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                      <div className="relative">
-                        <GlobeAltIcon className="h-16 w-16 text-rose-500" />
-                        <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
-                          <div className="h-2 w-2 bg-rose-400 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-semibold text-rose-900 mb-4">Internationale Erfahrung</h3>
-                    <p className="text-gray-600 mb-6">
-                      Geprägt von Lehren aus Bali, Italien, der Schweiz und darüber hinaus
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-3">
-                      <span className="px-3 py-1 text-sm bg-white text-rose-700 rounded-full border border-rose-100">Bali</span>
-                      <span className="px-3 py-1 text-sm bg-white text-fuchsia-700 rounded-full border border-fuchsia-100">Italien</span>
-                      <span className="px-3 py-1 text-sm bg-white text-rose-600 rounded-full border border-rose-100">Schweiz</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-rose-100 rounded-full opacity-30"></div>
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-fuchsia-100 rounded-full opacity-40"></div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Bottom CTA */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-0.5">
-              <span className="font-medium">Entdecke deinen Heilungsweg</span>
-              <ArrowRightIcon className="ml-2 h-5 w-5" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6: Mein Ansatz */}
-      <section className="relative py-20 md:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-rose-900 mb-4">
-              Mein ganzheitlicher Ansatz
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-fuchsia-400 to-rose-400 mx-auto mb-6"></div>
-            <p className="text-xl text-rose-800/90 italic">
-              "KÖRPER, GEIST, HERZ UND SEELE IM EINKLANG"
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              {
-                title: 'Körperarbeit',
-                items: ['Somatische Körperarbeit', 'Rebalancing', 'Atemarbeit'],
-                icon: <HeartIcon className="h-8 w-8 text-rose-500" />,
-                bgGradient: 'from-rose-50 to-rose-50',
-                textColor: 'text-rose-500',
-                iconColor: 'text-rose-500'
-              },
-              {
-                title: 'Geist & Psyche',
-                items: ['Inneres Familiensystem (IFS)', 'Spiritual Inquiry', 'Präsenztraining'],
-                icon: <LightBulbIcon className="h-8 w-8 text-fuchsia-500" />,
-                bgGradient: 'from-fuchsia-50 to-fuchsia-50',
-                textColor: 'text-fuchsia-500',
-                iconColor: 'text-fuchsia-500'
-              },
-              {
-                title: 'Spiritualität',
-                items: ['Meditation', 'Bewusstseinsarbeit', 'Energiearbeit'],
-                icon: <SparklesIcon className="h-8 w-8 text-purple-500" />,
-                bgGradient: 'from-purple-50 to-purple-50',
-                textColor: 'text-purple-500',
-                iconColor: 'text-purple-500'
-              }
-            ].map((category, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className={`p-6 bg-gradient-to-r ${category.bgGradient}`}>
-                  <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 mx-auto">
-                    {React.cloneElement(category.icon, { className: `h-8 w-8 ${category.iconColor}` })}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 text-center mb-4">{category.title}</h3>
-                  <ul className="space-y-2">
-                    {category.items.map((item, i) => (
-                      <li key={i} className="flex items-center">
-                        <CheckIcon className={`h-5 w-5 ${category.textColor} mr-2`} />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Dein nächster Schritt */}
+      {/* Section 8: Dein nächster Schritt */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-white to-rose-50">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-[0.02]"></div>
@@ -661,7 +786,7 @@ export default function MeinWeg() {
             
             <div className="space-y-6 mb-10">
               <p className="text-gray-700">
-                Vielleicht stehst du an einem Wendepunkt. Vielleicht spürst du, dass da mehr ist. Vielleicht bist du bereit, dich selbst neu zu entdecken.
+                Vielleicht stehst du an einem Wendepunkt. Vielleicht spürst du, dass da mehr ist. Vielleicht bist du bereit, dich selbst wahrhaftig zu entdecken.
               </p>
               
               <div className="p-6 bg-rose-50 rounded-xl">
@@ -669,12 +794,14 @@ export default function MeinWeg() {
                   Was auch immer dich hierher geführt hat – du bist willkommen.
                 </p>
                 <p className="text-gray-700 text-center">
-                  Du musst nicht perfekt sein, nicht „funktionieren“, um diesen Weg zu gehen. Alles, was du brauchst, ist bereits in dir. Ich helfe dir, dich daran zu erinnern.
+                  Heilung ist möglich - in jedem Moment.
+                  Du musst nicht perfekt sein, nicht „funktionieren“, um diesen Weg zu gehen. Alles, was du brauchst, ist bereits in dir. Ich helfe dir, dich daran zu erinnern. Du bist unendlich kraftvoll und schöpferisch.
+                  Du musst diesen Weg nicht alleine gehen.
                 </p>
               </div>
               
               <p className="text-lg font-medium text-rose-900 text-center mb-8">
-                Ich lade dich herzlich zu einem kostenfreien Gespräch ein – um herauszufinden, wie ich dich auf deinem Weg begleiten kann.
+                Ich lade dich herzlich zu einem kostenfreien, unverbindlichen Gespräch ein – um herauszufinden, ob ich dich auf deinem Weg begleiten kann.
               </p>
               
               <div className="flex justify-center mt-8">
@@ -682,7 +809,7 @@ export default function MeinWeg() {
                   href="/buchen" 
                   className="group inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-pink-600 to-purple-600 rounded-full hover:from-pink-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span className="mr-2">Jetzt Termin vereinbaren</span>
+                  <span className="mr-2">kostenloses Erstgespräch vereinbaren</span>
                   <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

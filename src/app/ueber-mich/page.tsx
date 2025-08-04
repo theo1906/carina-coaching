@@ -5,7 +5,37 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Über mich | Carina Göb - System-Coach für Essstörungen',
   description: 'Erfahre mehr über meine Geschichte als System-Coach für Essstörungen und ED-Recovery. Persönliche Erfahrung und professionelle Begleitung für deine Heilungsreise.',
+  openGraph: {
+    title: 'Über mich | Carina Göb - System-Coach für Essstörungen',
+    description: 'Erfahre mehr über meine Geschichte als System-Coach für Essstörungen und ED-Recovery. Persönliche Erfahrung und professionelle Begleitung für deine Heilungsreise.',
+    url: 'https://www.carina-goeb.com/ueber-mich',
+    siteName: 'Carina Göb - System-Coach für Essstörungen',
+    locale: 'de_DE',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.carina-goeb.com/ueber-mich',
+  },
 };
+
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  if (params.slug === 'mein-weg') {
+    return {
+      title: 'Mein Weg | Carina Göb - Life & Mindset Coaching',
+      description: 'Meine persönliche Reise von 20 Jahren Kampf zur spontanen Heilung und wie ich heute andere auf ihrem Weg begleite.',
+      openGraph: {
+        title: 'Mein Weg | Carina Göb - Life & Mindset Coaching',
+        description: 'Meine persönliche Reise von 20 Jahren Kampf zur spontanen Heilung und wie ich heute andere auf ihrem Weg begleite.',
+        url: 'https://www.carina-goeb.com/ueber-mich/mein-weg',
+      },
+      alternates: {
+        canonical: 'https://www.carina-goeb.com/ueber-mich/mein-weg',
+      },
+    };
+  }
+  
+  return metadata;
+}
 
 const sections = [
   {

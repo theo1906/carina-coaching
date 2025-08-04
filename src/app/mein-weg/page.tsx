@@ -1,61 +1,21 @@
-import React from 'react';
-import Link from 'next/link';
-import { SparklesIcon, HeartIcon, LightBulbIcon, UserGroupIcon, CheckIcon, ArrowRightIcon, ChevronRightIcon, UserCircleIcon, AcademicCapIcon, BookOpenIcon, ClockIcon, FireIcon, ArrowUpRightIcon, GlobeAltIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { redirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Mein Weg | Carina Göb - Life & Mindset Coaching',
-  description: 'Meine persönliche Reise von 20 Jahren Kampf zur spontanen Heilung und wie ich heute andere auf ihrem Weg begleite.',
-};
-
-export default function MeinWeg() {
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-br from-pink-50 to-purple-50">
-        <div className="absolute inset-0">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-          <div className="absolute top-1/3 -right-8 w-24 h-24 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
-          <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
-              Mein Weg
-            </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
-            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
-              "VON 20 JAHREN KAMPF ZUR SPONTANEN HEILUNG"
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 1: Meine Geschichte */}
-      <section className="relative py-16 md:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
-              Von 20 Jahren Kampf zur spontanen Heilung
-            </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
-            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
-              "WIE ICH DURCH MEINE EIGENE HEILUNG HEUTE ANDERE BEGLEITE"
-            </p>
-          </div>
+export default function MeinWegRedirect() {
+  redirect('/ueber-mich/mein-weg');
+  
+  // This return is just a fallback in case the redirect doesn't work
+  return null;
+}
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-gray-700 mb-6">
-                Ich bin Carina Göb – Spiritual Life Coach & Recovery Coach aus München. Meine Arbeit wurzelt nicht in Theorie, sondern in 20 Jahren persönlicher Erfahrung mit Bulimie.
-              </p>
-              <p className="text-gray-700 mb-6">
-                2016 geschah etwas Unerwartetes: Eine spontane, vollständige und dauerhafte Heilung – ein innerer Wandel, der mein Leben für immer verändert hat. Diese Erfahrung hat mir gezeigt, dass tiefe Transformation möglich ist, wenn wir uns wieder mit der inneren Weisheit unseres Körpers verbinden.
-              </p>
-              <p className="text-gray-700 mb-8">
-                Heute lebe ich frei – verbunden mit meinem Körper, meiner Intuition und meiner weiblichen Kraft. Mein Weg war nicht nur eine Genesung, sondern eine Rückkehr zu mir selbst. Diese Rückverbindung weiterzugeben, ist heute meine Berufung.
-              </p>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight">
+                Meine Reise von der Krise in die Heilung und Selbstliebe
+              </h3>
+                            <div className="space-y-6 text-gray-700">
+                  <CollapsibleSection />
+                  <MeineWendeSection />
+              </div>
               <div className="flex justify-center md:justify-start">
                 <Link 
                   href="/buchen" 
@@ -120,6 +80,8 @@ export default function MeinWeg() {
                   </div>
                 ))}
               </div>
+              
+              <MeineBerufungSection />
               
               <p className="text-gray-700 mb-8">
                 Diese Verbindung zu dir selbst ermöglicht echte, nachhaltige Veränderung.

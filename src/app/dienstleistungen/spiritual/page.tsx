@@ -140,7 +140,7 @@ export default function SpiritualPage() {
         </div>
         
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
+          <div id="embodiment-und-heilung" className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gradient from-pink-600 to-purple-600 bg-clip-text bg-gradient-to-r mb-6">
               Embodiment & Heilung
             </h2>
