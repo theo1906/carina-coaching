@@ -30,6 +30,22 @@ export default function BookingPage() {
         <div className="mt-16">
           <BookingCalendar />
 
+          {/* Nachricht schreiben Section */}
+          <div className="mt-12 text-center">
+            <p className="text-lg text-gray-600 mb-4">
+              Kein passender Termin? Dann schreib mir!
+            </p>
+            <a 
+              href="mailto:info@carinagoeb.de" 
+              className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-full shadow-sm text-gray-700 bg-white hover:bg-gray-50 md:py-3 md:text-lg md:px-10 transition-colors duration-200"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Nachricht schreiben
+            </a>
+          </div>
+
           {/* So funktioniert's Section */}
           <section className="mt-16">
             <div className="text-center mb-8">

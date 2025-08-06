@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback, memo } from 'react';
-import { Bars3Icon, XMarkIcon, CalendarIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, CalendarIcon, ChevronDownIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 interface NavigationItem {
   name: string;
@@ -253,8 +253,8 @@ const Header = () => {
               href="/buchen"
               className="ml-6 inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 shadow-sm transition-all duration-300 hover:shadow-md"
             >
-              <CalendarIcon className="h-5 w-5 mr-2" />
-              Termin buchen
+              <EnvelopeIcon className="h-5 w-5 mr-2" />
+              Kontakt
             </Link>
           </div>
           <div className="flex lg:hidden">

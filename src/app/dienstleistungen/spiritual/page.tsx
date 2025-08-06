@@ -279,7 +279,7 @@ export default function SpiritualPage() {
             <div className="group relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-pink-100 hover:border-amber-200 p-6 md:p-7 hover:-translate-y-1.5 flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-50/40 to-amber-50/40 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
               <div className="relative flex-1 flex flex-col">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mb-4 shadow-inner border border-amber-100 group-hover:shadow-amber-100/30 transition-all duration-300">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mb-4 shadow-inner border border-amber-100 group-hover:shadow-amber-100/30 transition-all duration-300">
                   <LightBulbIcon className="h-7 w-7 text-amber-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-amber-700 transition-colors">Verbinde dich mit deiner inneren Weisheit</h3>

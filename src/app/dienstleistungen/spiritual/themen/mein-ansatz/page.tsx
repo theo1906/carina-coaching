@@ -21,7 +21,7 @@ export default function MeinAnsatzPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-black mb-8">Mein Ansatz für spirituelles Coaching</h1>
           
           <p className="text-gray-700 mb-6 text-lg">
-            Mein ganzheitlicher Beratungsansatz kombiniert meine Erkenntnisse aus meiner Self-Healer Erfahrung und das Methodisch-praktische aus dem Coaching mit der intuitiven Weisheit aus dem Spirituellen und ermöglicht so eine echte Transformation.
+            Das Herz meiner Arbeit liegt im "Embodiment": Wir entwickeln deine Fähigkeit präsent und verbunden zu sein mit deinem Körper und dadurch mit deinen Gefühlen, deiner Intuition und deinem authentischen Selbst.
           </p>
           
           <blockquote className="border-l-4 border-pink-500 pl-4 italic text-gray-700 my-8">
@@ -29,7 +29,7 @@ export default function MeinAnsatzPage() {
           </blockquote>
           
           <p className="text-gray-700 mb-6">
-            Als Spiritual Life Coach liegt der Fokus meiner Arbeit darin, dich wieder zurück in deine Vollständigkeit zu begleiten. Der Zustand deines SEINS als du hierher auf diese Welt gekommen bist - vollkommen rein, mit offenem Herzen, voller Leichtigkeit in deinem Körper, neugierig auf die Welt, offen für Nähe und Geborgenheit und in purer Freude im jeweiligen Moment lebend.
+            Meine Methode kombiniert spirituelle Praktiken mit körperzentriertem Coaching und unterstützt dich bei nachhaltiger Veränderung und persönlichem Wachstum. Wir erforschen tiefer liegende Ursachen deiner Herausforderungen im Leben und nutzen deine Körperwahrnehmungen als Wegweiser, um dich mit deinem inneren Weisen und deiner Heilkraft zu verbinden.
           </p>
           
           <p className="text-gray-700 mb-6">

@@ -29,7 +29,7 @@ export default function TimelineCollapsible() {
         <div className="mt-6">
           <div className="text-gray-700 max-w-4xl mx-auto text-lg space-y-6 text-left bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-gray-100 shadow-sm">
             <p>
-              Was meine Arbeit besonders macht, ist, dass ich diesen Weg selbst gegangen bin. Ich teile nicht nur Wissen, sondern echte Heilerfahrung. Ich verstehe den Mut, den es braucht, um sich für Hilfe und Unterstützung zu öffnen. Ich war dort, wo du vielleicht gerade stehst. Ich kenne die Ängste, die Zweifel, aber auch die Hoffnung, die dich hierher geführt hat. Als ich selbst noch am Kämpfen war und in der Essstörung, fühlte ich mich völlig alleine und habe mich aus tiefer Scham und Selbstablehnung niemandem anvertraut - 20 Jahre nicht.
+              Ich kenne die Ängste, die Zweifel, aber auch die Hoffnung, die dich hierher geführt hat. Als ich selbst noch am Kämpfen war und in der Essstörung, fühlte ich mich völlig alleine und habe mich aus tiefer Scham und Selbstablehnung niemandem anvertraut - 20 Jahre nicht.
             </p>
             
             <p>

@@ -15,7 +15,7 @@ export default function CallToAction() {
           href="/contact" 
           className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-full transition-all duration-300 hover:shadow-lg mx-auto"
         >
-          Dann lass uns sprechen
+          Vereinbare jetzt dein kostenloses Erstgespräch
           <ArrowRightIcon className="ml-2 h-5 w-5" />
         </Link>
       </div>

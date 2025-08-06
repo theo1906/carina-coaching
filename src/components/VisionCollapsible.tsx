@@ -29,10 +29,6 @@ export default function VisionCollapsible() {
         <div className="mt-6">
           <div className="text-gray-700 max-w-4xl mx-auto text-lg space-y-6 text-left bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-gray-100 shadow-sm">
             <p>
-              Die Kraft zu heilen, liegt in uns selbst. Und wenn wir uns selbst heilen, heilen wir die Welt. Als Wassermann Frau ist das meine Lebensphilosophie und die Motivation hinter meiner Arbeit. In meiner Rolle als Coach höre ich dir zu. Wertfrei, ohne Rettungsversuche oder Heilungsversprechen, dafür mit Mitgefühl und Menschlichkeit. Ich schaffe dabei einen sicheren unterstützenden Container, in dem du dir erlauben kannst, tief zu gehen, um dich mit der universellen Heilkraft in dir zu verbinden. Der Prozess der Heilung in dir darf frei fließen und wir vertrauen der natürlichen Intelligenz deines Körpers.
-            </p>
-            
-            <p>
               Mein Coaching setzt dort an, wo du gerade stehst in deinem Leben und ermöglicht dir eine ganz individuelle Reise in deinem eigenen Tempo mit Empathie, Verständnis und praktischer, alltagsnaher Begleitung.
             </p>
           </div>

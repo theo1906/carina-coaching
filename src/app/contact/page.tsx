@@ -41,7 +41,7 @@ export default function Contact() {
             Buche dein kostenloses Kennenlerngespräch oder nimm direkt Kontakt mit mir auf.
           </p>
           
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-10 flex justify-center">
             <Link 
               href="/buchen" 
               className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10 transition-all duration-300 hover:shadow-lg"
@@ -50,13 +50,6 @@ export default function Contact() {
               Termin buchen
               <ArrowRightIcon className="ml-2 h-5 w-5" />
             </Link>
-            <a 
-              href="mailto:info@carinagoeb.de" 
-              className="inline-flex items-center justify-center px-8 py-4 border border-gray-300 text-base font-medium rounded-full shadow-sm text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition-colors duration-200"
-            >
-              <EnvelopeIcon className="h-6 w-6 mr-2" />
-              Nachricht schreiben
-            </a>
           </div>
         </div>
       </section>

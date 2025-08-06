@@ -9,8 +9,8 @@ const navigation = {
   main: [
     { name: 'Home', href: '/' },
     { name: 'Dienstleistungen', href: '/dienstleistungen' },
-    { name: 'Über mich', href: '/ueber-mich' },
-    { name: 'Blog', href: '/services' },
+    { name: 'Über mich', href: '/ueber-mich/mein-weg' },
+    { name: 'Kontakt', href: '/kontakt' },
   ],
   legal: [
     { name: 'Impressum', href: '/legal' },
@@ -86,7 +86,7 @@ export default function Footer() {
                     Carina Göb
                   </span>
                   <span className="block text-sm font-medium text-neutral-500 mt-1">
-                    Life & Mindset Coaching
+                    Embodiment for Women
                   </span>
                 </Link>
               </div>
@@ -125,31 +125,37 @@ export default function Footer() {
                         {item.name === 'Dienstleistungen' ? (
                           <>
                             <Link
-                              href="/dienstleistungen/essstorung/page"
+                              href="/dienstleistungen/essstorung"
                               className="text-neutral-500 hover:text-primary-600 transition-colors duration-300"
                             >
                               Essstörung Coaching
                             </Link>
                             <Link
-                              href="/dienstleistungen/spiritual/page"
+                              href="/dienstleistungen/spiritual"
                               className="text-neutral-500 hover:text-primary-600 transition-colors duration-300"
                             >
                               Spiritual Life Coaching
+                            </Link>
+                            <Link
+                              href="/dienstleistungen/embodiment-und-heilung"
+                              className="text-neutral-500 hover:text-primary-600 transition-colors duration-300"
+                            >
+                              Embodiment & Heilung
                             </Link>
                           </>
                         ) : (
                           <>
                             <Link
-                              href="/ueber-mich"
+                              href="/ueber-mich/mein-weg"
                               className="text-neutral-500 hover:text-primary-600 transition-colors duration-300"
                             >
                               Mein Weg
                             </Link>
                             <Link
-                              href="/services/angebot"
+                              href="/ueber-mich/meine-vision"
                               className="text-neutral-500 hover:text-primary-600 transition-colors duration-300"
                             >
-                              Preise
+                              Meine Vision
                             </Link>
                           </>
                         )}
@@ -178,28 +184,16 @@ export default function Footer() {
                     </a>
                   </div>
                 </div>
-                <div className="flex">
-                  <PhoneIcon className="h-5 w-5 text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-sm text-neutral-500">Telefon</span>
-                    <a 
-                      href="tel:+49123456789" 
-                      className="text-neutral-700 hover:text-primary-600 transition-colors duration-300"
-                    >
-                      +49 123 456 789
-                    </a>
-                  </div>
-                </div>
+
                 <div className="flex">
                   <MapPinIcon className="h-5 w-5 text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
                   <div>
                     <span className="block text-sm text-neutral-500">Adresse</span>
                     <span className="text-neutral-700">
-                      Carina Göb Life & Mindset Coaching
+                      Rosenstraße 17
                       <br />
-                      Musterstraße 123
-                      <br />
-                      12345 Musterstadt
+                      80331 München
+
                     </span>
                   </div>
                 </div>

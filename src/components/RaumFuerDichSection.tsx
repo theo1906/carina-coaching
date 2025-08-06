@@ -6,17 +6,17 @@ export default function RaumFuerDichSection() {
   const topFeatures = [
     {
       icon: <ShieldCheck className="w-8 h-8 text-white" />,
-      title: 'Vertrauensvoll & wertfrei',
+      title: 'Vertrauensvoll, einladend und wertfrei',
       description: 'Ein geschützter Raum ohne Bewertung, in dem du ganz du selbst sein kannst.'
     },
     {
       icon: <Heart className="w-8 h-8 text-white" />,
-      title: 'Trauma-Sensibilität',
+      title: 'Trauma-Sensibilität und Verantwortungsbewusstsein',
       description: 'Begleitung mit tiefem Verständnis für dein Nervensystem und höchster Professionalität.'
     },
     {
       icon: <Target className="w-8 h-8 text-white" />,
-      title: 'Ressourcenorientiert',
+      title: 'Ressourcenorientiertes Vorgehen',
       description: 'Wir nutzen deine inneren Stärken als Basis für deine Entwicklung.'
     }
   ];
@@ -29,17 +29,17 @@ export default function RaumFuerDichSection() {
     },
     {
       icon: <Clock className="w-6 h-6 text-rose-500" />,
-      title: 'Dein Tempo',
+      title: 'Schritt für Schritt in deinem Tempo',
       description: 'Schritt für Schritt, so wie es sich für dich sicher anfühlt.'
     },
     {
       icon: <Eye className="w-6 h-6 text-rose-500" />,
-      title: 'Ganzheitlich',
+      title: 'Ganzheitliche Sichtweise',
       description: 'Ursachenforschung statt Symptombekämpfung.'
     },
     {
       icon: <Sparkles className="w-6 h-6 text-rose-500" />,
-      title: 'Mit Leichtigkeit',
+      title: 'Humor, Freude und Leichtigkeit',
       description: 'Heilung bringt Freude und Lebendigkeit in dein Leben.'
     }
   ];
@@ -92,7 +92,21 @@ export default function RaumFuerDichSection() {
         </div>
 
         <div className="text-center mt-16">
-          <RaumCollapsible />
+          <div className="max-w-3xl mx-auto p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100 shadow-sm">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              Mit meinem Coaching möchte ich dir einen Raum schaffen, in dem du dich als Frau absolut sicher fühlst, um dich in deiner Tiefe zu erforschen und zu heilen.
+            </p>
+            
+            <div className="flex justify-center space-x-4 mt-6">
+              <span className="inline-block w-3 h-3 rounded-full bg-rose-500"></span>
+              <span className="inline-block w-3 h-3 rounded-full bg-rose-400"></span>
+              <span className="inline-block w-3 h-3 rounded-full bg-rose-300"></span>
+            </div>
+            
+            <div className="mt-6">
+              <RaumCollapsible />
+            </div>
+          </div>
         </div>
       </div>
     </section>
