@@ -42,13 +42,13 @@ export default function SpiritualPage() {
         </div>
         
         <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
               Spirituelles Life Coaching
             </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-6"></div>
-            <p className="text-2xl text-pink-800/90 italic max-w-2xl mx-auto mb-8">
-              "INNERE TRANSFORMATION DURCH KÖRPERLICHE PRÄSENZ"
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-500 mx-auto mb-8"></div>
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
+              Hi, ich bin Carina! Ich unterstütze so viele Frauen wie möglich dabei ihre eigene Heilkraft und Herzensweisheit wiederzuentdecken und mutig zu verkörpern durch spirituelles Coaching und Systemisches-Coaching für Essstörungen und ED Recovery.
             </p>
             <div className="mt-10">
               <Link 

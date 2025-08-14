@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesIcon, HeartIcon, ChatBubbleLeftRightIcon, DevicePhoneMobileIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
@@ -16,19 +16,104 @@ const features = [
     description: 'Entdecke geführte Meditationen für mehr innere Ruhe und Ausgeglichenheit.'
   },
   {
-    icon: <HeartIcon className="h-6 w-6" />,
-    title: 'Persönliches Tagebuch',
-    description: 'Trage deine Gedanken und Fortschritte in dein digitales Tagebuch ein und verfolge deine Entwicklung.'
-  },
-  {
     icon: <ChatBubbleLeftRightIcon className="h-6 w-6" />,
     title: 'Frage der Woche',
     description: 'Antworte auf die Frage der Woche und teile deine Erfahrungen mit der Community.'
+  },
+  {
+    icon: <HeartIcon className="h-6 w-6" />,
+    title: 'Schreib mir wie du dich fühlst',
+    description: 'Trage deine Gedanken und Fortschritte in dein digitales Tagebuch ein und verfolge deine Entwicklung.'
   }
 ];
 
+// Questions will rotate weekly (52 weeks in a year)
+const weeklyQuestions = [
+  "Was ist der wichtigste Schritt auf deinem Weg zur Heilung?",
+  "Wofür bist du heute dankbar?",
+  "Was würdest du tun, wenn du keine Angst hättest?",
+  "Was bedeutet Selbstfürsorge für dich?",
+  "Welche kleine Freude hat dich heute zum Lächeln gebracht?",
+  "Was möchtest du in dieser Woche loslassen?",
+  "Was hat dich diese Woche stark gemacht?"
+];
+
+// Get a consistent question for the current week
+const getCurrentQuestion = () => {
+  const now = new Date();
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const weekNumber = Math.ceil((((now.getTime() - startOfYear.getTime()) / 86400000) + startOfYear.getDay() + 1) / 7);
+  return weeklyQuestions[weekNumber % weeklyQuestions.length];
+};
+
 export default function AppShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
+  const [isRunning, setIsRunning] = useState(false);
+  const [answer, setAnswer] = useState('');
+  const [diaryEntry, setDiaryEntry] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isDiarySubmitted, setIsDiarySubmitted] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState('');
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Set the current question on component mount
+  useEffect(() => {
+    setCurrentQuestion(getCurrentQuestion());
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isRunning && timeLeft > 0) {
+      timerRef.current = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          if (prevTime <= 1) {
+            setIsRunning(false);
+            clearInterval(timerRef.current as NodeJS.Timeout);
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+    } else if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [isRunning, timeLeft]);
+
+  const startTimer = () => {
+    if (timeLeft === 0) {
+      setTimeLeft(600); // Reset to 10 minutes if timer is done
+    }
+    setIsRunning(true);
+  };
+
+  const pauseTimer = () => {
+    setIsRunning(false);
+  };
+
+  const resetTimer = () => {
+    setIsRunning(false);
+    setTimeLeft(600);
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
   
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + features.length) % features.length);
@@ -59,7 +144,7 @@ export default function AppShowcase() {
             </span>
           </h2>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Nimm die 5 Minuten für dich Zeit und konzentriere dich auf dein Geist.
+            Nimm dir 15 Minuten Zeit für dich
           </p>
         </motion.div>
 
@@ -155,7 +240,7 @@ export default function AppShowcase() {
                           <div className="mt-4">
                             <h4 className="text-sm font-medium text-gray-900">Heutige Übung</h4>
                             <p className="text-sm text-gray-600 mt-1">
-                              Nimm dir 5 Minuten Zeit für tiefe Atemzüge und spüre, wie sich dein Körper entspannt.
+                              Nimm dir 5 Minuten Zeit für eine kurze Achtsamkeitsübung: Beobachte deinen Atem, ohne ihn zu verändern.
                             </p>
                           </div>
                         </motion.div>
@@ -178,15 +263,96 @@ export default function AppShowcase() {
                               </div>
                             </div>
                             <h4 className="text-lg font-medium text-gray-900 mb-2">Tiefenentspannung</h4>
-                            <p className="text-sm text-gray-600 text-center mb-6">10 Minuten • Für mehr innere Ruhe</p>
-                            <button className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition-colors">
-                              Starten
-                            </button>
+                            <div className="text-3xl font-mono font-medium text-pink-600 mb-6">
+                              {formatTime(timeLeft)}
+                            </div>
+                            <div className="flex flex-col space-y-2 w-full">
+                              {!isRunning ? (
+                                <button 
+                                  onClick={startTimer}
+                                  className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition-colors w-full"
+                                >
+                                  {timeLeft === 0 ? 'Neustart' : 'Starten'}
+                                </button>
+                              ) : (
+                                <button 
+                                  onClick={pauseTimer}
+                                  className="px-6 py-2 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition-colors w-full"
+                                >
+                                  Pause
+                                </button>
+                              )}
+                              {timeLeft < 600 && (
+                                <button 
+                                  onClick={resetTimer}
+                                  className="px-6 py-2 text-sm text-pink-600 hover:text-pink-700 transition-colors"
+                                >
+                                  Zurücksetzen
+                                </button>
+                              )}
+                            </div>
                           </div>
                         </motion.div>
                       )}
                       
                       {activeIndex === 2 && (
+                        <motion.div
+                          key="weekly-question"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="h-full flex flex-col"
+                        >
+                          <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-4 mb-4 border border-pink-100 shadow-sm">
+                            <h3 className="text-lg font-medium text-pink-800">Frage der Woche</h3>
+                            <p className="text-sm text-gray-700 mt-1 italic">
+                              "{currentQuestion}"
+                            </p>
+                          </div>
+                          
+                          {isSubmitted ? (
+                            <div className="flex-1 flex flex-col">
+                              <div className="bg-white p-4 rounded-lg border border-gray-200 flex-1">
+                                <p className="text-sm text-gray-700 mb-2">Deine Antwort:</p>
+                                <p className="text-gray-800 whitespace-pre-line">{answer || '(Keine Antwort gegeben)'}</p>
+                              </div>
+                              <div className="mt-4 text-center">
+                                <span className="text-sm text-pink-600">Deine Antwort wurde gespeichert.</span>
+                              </div>
+                            </div>
+                          ) : (
+                            <form 
+                              className="flex-1 flex flex-col"
+                              onSubmit={(e) => {
+                                e.preventDefault();
+                                setIsSubmitted(true);
+                                // In the future, we'll add email sending logic here
+                              }}
+                            >
+                              <label htmlFor="answer" className="block text-sm font-medium text-gray-700 mb-2">
+                                Deine Antwort:
+                              </label>
+                              <textarea
+                                id="answer"
+                                rows={6}
+                                className="flex-1 w-full p-3 text-sm border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent mb-4"
+                                placeholder="Schreibe hier deine Gedanken..."
+                                value={answer}
+                                onChange={(e) => setAnswer(e.target.value)}
+                              />
+                              <button 
+                                type="submit" 
+                                className="px-6 py-2 bg-gradient-to-r from-pink-600 to-pink-700 text-white text-sm font-medium rounded-lg hover:from-pink-700 hover:to-pink-800 transition-colors w-full"
+                              >
+                                Antwort speichern
+                              </button>
+                            </form>
+                          )}
+                        </motion.div>
+                      )}
+                      
+                      {activeIndex === 3 && (
                         <motion.div
                           key="diary"
                           initial={{ opacity: 0, y: 20 }}
@@ -195,37 +361,58 @@ export default function AppShowcase() {
                           transition={{ duration: 0.3 }}
                           className="h-full flex flex-col"
                         >
-                          <h3 className="text-lg font-medium text-gray-900 mb-3">Mein Tagebuch</h3>
-                          <textarea
-                            className="flex-1 w-full p-3 text-sm border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                            placeholder="Wie fühlst du dich heute?"
-                            rows={6}
-                          />
-                          <button className="mt-3 px-4 py-2 bg-pink-100 text-pink-700 text-sm font-medium rounded-lg hover:bg-pink-200 transition-colors">
-                            Speichern
-                          </button>
-                        </motion.div>
-                      )}
-                      
-                      {activeIndex === 3 && (
-                        <motion.div
-                          key="weekly-question"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
-                          transition={{ duration: 0.3 }}
-                          className="h-full flex flex-col items-center justify-center"
-                        >
-                          <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-4 mb-6 border border-pink-100 shadow-sm">
-                            <h3 className="text-lg font-medium text-pink-800">Frage der Woche</h3>
-                            <p className="text-sm text-gray-700 mt-1">
-                              "Was ist der wichtigste Schritt auf deinem Weg zur Heilung?"
+                          <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-4 mb-4 border border-pink-100 shadow-sm">
+                            <h3 className="text-lg font-medium text-pink-800">Schreib mir wie du dich fühlst</h3>
+                            <p className="text-sm text-gray-700 mt-1 italic">
+                              Teile deine Gedanken und Gefühle mit mir.
                             </p>
                           </div>
-                          <a href="/blog#weekly-question" className="px-6 py-2 bg-gradient-to-r from-pink-600 to-pink-700 text-white text-sm font-medium rounded-lg hover:from-pink-700 hover:to-pink-800 transition-colors flex items-center space-x-2">
-                            <span>Zur Frage der Woche</span>
-                            <ArrowRightIcon className="w-4 h-4" />
-                          </a>
+                          
+                          {isDiarySubmitted ? (
+                            <div className="flex-1 flex flex-col">
+                              <div className="bg-white p-4 rounded-lg border border-gray-200 flex-1">
+                                <p className="text-sm text-gray-700 mb-2">Dein Tagebucheintrag:</p>
+                                <p className="text-gray-800 whitespace-pre-line">{diaryEntry || '(Kein Eintrag vorhanden)'}</p>
+                              </div>
+                              <div className="mt-4 text-center">
+                                <span className="text-sm text-pink-600">Dein Eintrag wurde gespeichert.</span>
+                              </div>
+                            </div>
+                          ) : (
+                            <form 
+                              className="flex-1 flex flex-col"
+                              onSubmit={(e) => {
+                                e.preventDefault();
+                                if (diaryEntry.trim()) {
+                                  setIsDiarySubmitted(true);
+                                  // In the future, we'll add saving logic here
+                                }
+                              }}
+                            >
+                              <label htmlFor="diary-entry" className="block text-sm font-medium text-gray-700 mb-2">
+                                Wie fühlst du dich heute?
+                              </label>
+                              <textarea
+                                id="diary-entry"
+                                rows={8}
+                                className="flex-1 w-full p-3 text-sm border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent mb-4"
+                                placeholder="Schreibe hier, was dich bewegt..."
+                                value={diaryEntry}
+                                onChange={(e) => setDiaryEntry(e.target.value)}
+                              />
+                              <button 
+                                type="submit" 
+                                disabled={!diaryEntry.trim()}
+                                className={`px-6 py-2 text-sm font-medium rounded-lg transition-colors w-full ${
+                                  diaryEntry.trim() 
+                                    ? 'bg-gradient-to-r from-pink-600 to-pink-700 text-white hover:from-pink-700 hover:to-pink-800' 
+                                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                                }`}
+                              >
+                                Eintrag speichern
+                              </button>
+                            </form>
+                          )}
                         </motion.div>
                       )}
                     </div>

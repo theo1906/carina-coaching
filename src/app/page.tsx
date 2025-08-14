@@ -107,14 +107,14 @@ export default function Home() {
 
                       <div className="mt-6">
                         <p className="text-gray-600 text-sm">
-                          "Die Kraft der Präsenz und der Verbindung zu deinem inneren Weisen ist der Schlüssel zu tiefer Heilung und persönlicher Transformation."
+                          "Die Kraft der Präsens und die Berindung mit deiner Wahrhaftigkeit ist der Schlüssel zu tiefer Heilung und persönlicher Transformation"
                         </p>
                       </div>
                     </div>
                   </div>
 
                   <Link 
-                    href="/about"
+                    href="/ueber-mich/mein-weg"
                     className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-pink-600 to-pink-600 rounded-full hover:from-pink-700 hover:to-pink-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     <span className="mr-2">Mehr erfahren</span>
@@ -136,8 +136,8 @@ export default function Home() {
             
             <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-pink-900 mb-6">
-                  Coachings
+                <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+                  Mein Coaching
                 </h2>
                 <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mb-8"></div>
                 <p className="text-2xl text-pink-800/90 italic max-w-3xl mx-auto mb-8">
@@ -184,7 +184,7 @@ export default function Home() {
                       content="Du entwickelst praktische Tools für Selbstregulation und emotionale Resilienz, die dich in allen Bereichen deines Alltags unterstützen, ein erfülltes und selbstbestimmtes Leben zu führen."
                     />
                   </div>
-                  <Link href="/coaching/spiritual" className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg hover:from-pink-700 hover:to-purple-700 transition-colors mt-8">
+                  <Link href="/dienstleistungen/spiritual" className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg hover:from-pink-700 hover:to-purple-700 transition-colors mt-8">
                     <span className="mr-2">Mehr erfahren</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </Link>
@@ -199,7 +199,8 @@ export default function Home() {
                   </p>
                   <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mb-6"></div>
                   <p className="text-gray-700 mb-10 text-lg">
-                    Holistische Unterstützung bei Essstörungen durch Körperbewusstsein und spirituelle Heilung.
+                    Holistische Unterstützung bei Essstörungen durch Körperbewusstsein<br />
+                    und spirituelle Heilung.
                   </p>
                   <div className="space-y-5 mt-6">
                     <ExpandableBulletPoint 
@@ -233,7 +234,7 @@ export default function Home() {
                       color="purple"
                     />
                   </div>
-                  <Link href="/coaching/eating-disorders" className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors mt-8">
+                  <Link href="/dienstleistungen/essstorung" className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors mt-8">
                     <span className="mr-2">Mehr erfahren</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </Link>

@@ -13,10 +13,7 @@ export default function OshoQuote() {
       <div className="relative z-10">
         <blockquote className="text-center">
           <p className="text-2xl md:text-3xl font-serif italic text-pink-900 leading-relaxed mb-6">
-            "Die größte Furcht, die Menschen haben, ist die Furcht vor dem Unbekannten. 
-            <span className="block mt-4">
-              Und doch ist es das Unbekannte, in dem alle unsere Möglichkeiten verborgen liegen."
-            </span>
+            "Be realistic plan for a Miracle"
           </p>
           <footer className="text-pink-700 font-medium">
             — Osho

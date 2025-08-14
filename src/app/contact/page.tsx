@@ -47,7 +47,7 @@ export default function Contact() {
               className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10 transition-all duration-300 hover:shadow-lg"
             >
               <CalendarIcon className="h-6 w-6 mr-2" />
-              Termin buchen
+              Termin vereinbaren
               <ArrowRightIcon className="ml-2 h-5 w-5" />
             </Link>
           </div>

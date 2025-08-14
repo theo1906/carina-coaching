@@ -20,18 +20,16 @@ export default function CoachingOfferings() {
     },
     {
       icon: <BookOpenIcon className="h-8 w-8 text-rose-600" />,
-      title: "Körperzentriertes Coaching",
-      description: "Entwicklung tiefer Präsenz und Verbundenheit mit deinem Körper durch körperorientierte Übungen, Achtsamkeitstraining, Körperwahrnehmung und Atemtechniken.",
+      title: "Embodiment & Heilung",
+      description: "Entwicklung tiefer Präsenz und Verbundenheit mit deinem Körper und deinem authentischen Selbst.",
       dropdownContent: (
-        <div className="mt-4 pl-2">
-          <ul className="space-y-2 text-gray-600 text-sm list-disc pl-5">
-            <li className="leading-relaxed">KörperBewusstSein und Körperpräsenz zu entwickeln und dich sicher zu fühlen im eigenen Körper</li>
-            <li className="leading-relaxed">Emotionale Resilienz und Selbstregulierung, in dem du deine Gefühle bewusst da sein lässt und wahrnimmst anstatt sie zu unterdrücken</li>
-            <li className="leading-relaxed">Ein positives Selbstbild zu entwickeln und zu verkörpern und dein Vertrauen in dich und das Leben zu stärken</li>
-            <li className="leading-relaxed">Klare und gesunde Grenzen zu setzen</li>
-            <li className="leading-relaxed">Dich mit deiner weiblichen Kraft zu verbinden und im Einklang mit deinem Zyklus zu leben</li>
-            <li className="leading-relaxed">Negative, limitierende Glaubenssätze zu transformieren und dich für neue Möglichkeiten zu öffnen</li>
-          </ul>
+        <div className="space-y-4 text-gray-700">
+          <p>
+            Das Herz meiner Arbeit liegt im "Embodiment": Wir entwickeln deine Fähigkeit präsent und verbunden zu sein mit deinem Körper und dadurch mit deinen Gefühlen, deiner Intuition und deinem authentischen Selbst.
+          </p>
+          <p>
+            Meine Methode kombiniert spirituelle Praktiken mit körperzentriertem Coaching und unterstützt dich bei nachhaltiger Veränderung und persönlichem Wachstum. Wir erforschen tiefer liegende Ursachen deiner Herausforderungen im Leben und nutzen deine Körperwahrnehmungen als Wegweiser, um dich mit deinem inneren Weisen und deiner Heilkraft zu verbinden.
+          </p>
         </div>
       )
     },
@@ -44,15 +42,21 @@ export default function CoachingOfferings() {
   ];
 
   return (
-    <div className="bg-white">
-      <section className="py-16">
+    <div className="relative py-24 overflow-hidden bg-gradient-to-br from-white to-pink-50">
+      <div className="absolute inset-0">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute top-1/3 -right-8 w-24 h-24 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+      </div>
+      <section className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gradient from-pink-600 to-pink-600 bg-clip-text bg-gradient-to-r mb-6">
             Mein Ansatz
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-rose-400 to-fuchsia-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
             Entdecke, wie du durch gezieltes Coaching dein volles Potenzial entfalten kannst.
           </p>
         </div>
@@ -94,14 +98,19 @@ export default function CoachingOfferings() {
             className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
             aria-hidden={!isExpanded}
           >
-            <div className="mt-6">
-              <div className="text-gray-700 max-w-6xl mx-auto text-lg space-y-6 text-left bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-gray-100 shadow-sm">
-                <div className="grid grid-cols-1 gap-8">
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-3 text-lg">Körperzentriertes Coaching</h4>
-                    {services[1].dropdownContent}
-                  </div>
-                </div>
+            <div className="max-w-6xl mx-auto text-lg space-y-6 text-left">
+              <h4 className="font-medium text-gray-900 mb-3 text-lg">Embodiment & Heilung</h4>
+              {services[1].dropdownContent}
+              <div className="mt-8 text-center">
+                <a 
+                  href="/dienstleistungen/spiritual#embodiment-und-heilung"
+                  className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-pink-600 to-pink-600 rounded-full hover:from-pink-700 hover:to-pink-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <span className="mr-2">Mehr über Embodiment & Heilung</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -125,74 +134,74 @@ export default function CoachingOfferings() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Spiritual Life Coaching */}
-          <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-rose-100">
+          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
             <div className="flex items-center mb-6">
-              <div className="h-12 w-1.5 bg-gradient-to-b from-rose-400 to-fuchsia-400 rounded-full mr-4"></div>
-              <h3 className="text-2xl font-medium text-rose-900">Spirituelles Life Coaching</h3>
+              <div className="h-12 w-1.5 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full mr-4"></div>
+              <h3 className="text-2xl font-medium text-gray-900">Spirituelles Life Coaching</h3>
             </div>
-            <p className="text-rose-800/90 mb-4">Unterstützt Frauen dabei:</p>
-            <ul className="space-y-3 text-rose-900/90">
+            <p className="text-gray-700 mb-4">Unterstützt Frauen dabei:</p>
+            <ul className="space-y-3 text-gray-800">
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Sich selbst besser kennenzulernen und Selbstzweifel zu transformieren</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Eine eigene spirituelle Praxis und innere Verbindung aufzubauen</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Empowerment, Freude und Leichtigkeit zu spüren durch loslassen von Angst, Scham und Schuldgefühlen</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Sinn und Bestimmung im Leben zu finden</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Beziehungen authentischer zu leben</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Einschneidende Veränderungen im Leben zu meistern</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Spiritualität im Alltag und im Job zu integrieren</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Eine gesunde Work-Life Balance zu etablieren und einem Burnout vorzubeugen</span>
               </li>
             </ul>
           </div>
 
           {/* ED Recovery Coaching */}
-          <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-rose-100">
+          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
             <div className="flex items-center mb-6">
-              <div className="h-12 w-1.5 bg-gradient-to-b from-rose-400 to-fuchsia-400 rounded-full mr-4"></div>
-              <h3 className="text-2xl font-medium text-rose-900">Coaching für Essstörungen und ED-Recovery</h3>
+              <div className="h-12 w-1.5 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full mr-4"></div>
+              <h3 className="text-2xl font-medium text-gray-900">Coaching für Essstörungen und ED-Recovery</h3>
             </div>
-            <p className="text-rose-800/90 mb-4">Unterstützt Frauen bei:</p>
-            <ul className="space-y-3 text-rose-900/90">
+            <p className="text-gray-700 mb-4">Unterstützt Frauen bei:</p>
+            <ul className="space-y-3 text-gray-800">
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Bulimie, Binge Eating oder Magersucht und dem individuellen Weg in die Heilung und Recovery</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Emotionalem Essverhalten und Unwohlsein im eigenen Körper</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Entwicklung eines positiven Selbstbildes, Körperwahrnehmung und -Akzeptanz</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Familiensystem-Heilung bei Essstörungen</span>
               </li>
               <li className="flex items-start">
-                <span className="text-rose-500 mr-3">•</span>
+                <span className="text-pink-600 mr-3">•</span>
                 <span>Die eigene Identität abseits der Essstörung zu erforschen und zu verkörpern</span>
               </li>
             </ul>
@@ -216,7 +225,7 @@ export default function CoachingOfferings() {
           <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                Mein Ansatz vereint Intuition und Feinfühligkeit mit zertifiziertem Wissen und ganzheitlichen, körperorientierten Methoden.
+                Mein Ansatz vereint Intuition und Feinfühligkeit mit zertifiziertem Wissen und ganzheitlichen, körperzentrierten Methoden.
               </p>
             </div>
             

@@ -11,7 +11,7 @@ export default function RaumFuerDichSection() {
     },
     {
       icon: <Heart className="w-8 h-8 text-white" />,
-      title: 'Trauma-Sensibilität und Verantwortungsbewusstsein',
+      title: 'Trauma sensibel und Verantwortungsbewusst',
       description: 'Begleitung mit tiefem Verständnis für dein Nervensystem und höchster Professionalität.'
     },
     {

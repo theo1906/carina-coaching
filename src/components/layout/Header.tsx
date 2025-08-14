@@ -19,6 +19,11 @@ const navigation: NavigationItem[] = [
     className: 'hover:text-pink-600 transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium'
   },
   { 
+    name: 'Home Neu', 
+    href: '/home-neu',
+    className: 'hover:text-pink-600 transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium'
+  },
+  { 
     name: 'Services', 
     href: '/dienstleistungen',
     className: 'group relative hover:text-pink-600 transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium',
@@ -231,15 +236,24 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 relative" prefetch={false}>
-              <div className="relative h-12 w-48 sm:h-16 sm:w-64">
-                <Image
-                  src="/images/Screenshot 2025-06-17 at 17.26.22.png"
-                  alt="Carina Göb Life & Mindset Coaching"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 300px, 500px"
-                  className="object-contain object-left"
-                />
+              <div className="relative h-16 w-64 sm:h-20 sm:w-80">
+                <div className="relative w-full h-full flex items-center">
+                  <Image
+                    src="/images/New%20Logo.jpeg"
+                    alt="Carina Göb Life & Mindset Coaching"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 300px, 600px"
+                    className="object-contain object-left"
+                    style={{
+                      objectFit: 'contain',
+                      width: '100%',
+                      height: '100%',
+                      maxWidth: '240px',
+                      maxHeight: '80px'
+                    }}
+                  />
+                </div>
               </div>
             </Link>
           </div>

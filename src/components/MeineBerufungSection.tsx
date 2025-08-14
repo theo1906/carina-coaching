@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { HeartIcon } from '@heroicons/react/24/outline';
-import FridaQuote from './FridaQuote';
 
 export default function MeineBerufungSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +30,6 @@ export default function MeineBerufungSection() {
         <p className="text-gray-700 leading-relaxed mb-6">
           Heute lebe ich in einer liebevollen Beziehung mit mir und meinem Körper, in tiefer Verbindung mit meinem Herzen und mit kraftvollen Überzeugungen, die mich stärken und von innen heraus leiten und unterstütze so viele Frauen wie möglich auf ihrem Weg, ihre eigene Heilkraft und innere Weisheit wiederzuentdecken und zu verkörpern.
         </p>
-        <FridaQuote />
       </div>
     </div>
   );
