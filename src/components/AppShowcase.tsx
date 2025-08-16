@@ -56,10 +56,28 @@ export default function AppShowcase() {
   const [isDiarySubmitted, setIsDiarySubmitted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState('');
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   
-  // Set the current question on component mount
+  // Set the current question on component mount and initialize audio
   useEffect(() => {
     setCurrentQuestion(getCurrentQuestion());
+    
+    // Initialize audio when component mounts
+    if (typeof Audio !== 'undefined') {
+      audioRef.current = new Audio('/sounds/Meditation-Gong.mp3');
+      // Preload the audio
+      audioRef.current.preload = 'auto';
+      // Set volume to 50% to prevent it from being too loud
+      audioRef.current.volume = 0.5;
+    }
+    
+    // Cleanup audio on unmount
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -77,6 +95,23 @@ export default function AppShowcase() {
           if (prevTime <= 1) {
             setIsRunning(false);
             clearInterval(timerRef.current as NodeJS.Timeout);
+            // Play sound when timer reaches zero
+            if (audioRef.current) {
+              audioRef.current.currentTime = 0; // Rewind to start
+              const playPromise = audioRef.current.play();
+              
+              // Handle browsers that don't support promises
+              if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                  console.error('Error playing sound:', error);
+                  // Try alternative method for Safari
+                  if (error.name === 'NotAllowedError' || error.name === 'NotSupportedError') {
+                    console.log('Trying alternative audio play method for Safari');
+                    audioRef.current?.play().catch(e => console.error('Second attempt failed:', e));
+                  }
+                });
+              }
+            }
             return 0;
           }
           return prevTime - 1;
@@ -94,8 +129,25 @@ export default function AppShowcase() {
   }, [isRunning, timeLeft]);
 
   const startTimer = () => {
+    // This ensures audio can play in Safari by being triggered by user interaction
+    if (audioRef.current) {
+      try {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log('Audio play failed, will retry when timer ends:', error);
+          });
+        }
+        // Immediately pause after starting to make it ready for later
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      } catch (error) {
+        console.error('Error initializing audio:', error);
+      }
+    }
+    
     if (timeLeft === 0) {
-      setTimeLeft(600); // Reset to 10 minutes if timer is done
+      setTimeLeft(10); // Reset to 10 seconds if timer is done
     }
     setIsRunning(true);
   };
@@ -105,8 +157,8 @@ export default function AppShowcase() {
   };
 
   const resetTimer = () => {
+    setTimeLeft(600); // Reset to 10 minutes
     setIsRunning(false);
-    setTimeLeft(600);
   };
 
   const formatTime = (seconds: number) => {
@@ -318,7 +370,7 @@ export default function AppShowcase() {
                                 <p className="text-gray-800 whitespace-pre-line">{answer || '(Keine Antwort gegeben)'}</p>
                               </div>
                               <div className="mt-4 text-center">
-                                <span className="text-sm text-pink-600">Deine Antwort wurde gespeichert.</span>
+                                <span className="text-sm text-pink-600">Deine Antwort wurde gesendet.</span>
                               </div>
                             </div>
                           ) : (

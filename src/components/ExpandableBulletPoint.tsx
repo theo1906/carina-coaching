@@ -14,17 +14,17 @@ export default function ExpandableBulletPoint({ title, content, index, color = '
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="mb-4 min-h-[28px]">
+    <div className="mb-4">
       <div 
         className="flex items-start cursor-pointer group"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <div className={`flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r ${color === 'pink' ? 'from-pink-100 to-pink-50' : 'from-purple-100 to-purple-50'} flex items-center justify-center mr-4 mt-1`}>
+        <div className={`flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r ${color === 'pink' ? 'from-pink-100 to-pink-50' : 'from-purple-100 to-purple-50'} flex items-center justify-center mr-4`}>
           <div className={`h-2 w-2 rounded-full ${color === 'pink' ? 'bg-pink-600' : 'bg-purple-600'}`}></div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 pt-0.5">
           <div className="flex items-start justify-between">
-            <span className="text-gray-700 text-lg leading-tight">
+            <span className="text-gray-700 text-lg leading-snug">
               {title}
             </span>
             <div className="ml-2 text-pink-500 flex-shrink-0 mt-1">

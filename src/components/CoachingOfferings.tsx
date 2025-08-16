@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { UserGroupIcon, SparklesIcon, BookOpenIcon, ChevronDownIcon, ChevronUpIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import CollapsibleBulletList from './CollapsibleBulletList';
 
 export default function CoachingOfferings() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,7 +21,7 @@ export default function CoachingOfferings() {
     },
     {
       icon: <BookOpenIcon className="h-8 w-8 text-rose-600" />,
-      title: "Embodiment & Heilung",
+      title: "Körperzentriertes Coaching",
       description: "Entwicklung tiefer Präsenz und Verbundenheit mit deinem Körper und deinem authentischen Selbst.",
       dropdownContent: (
         <div className="space-y-4 text-gray-700">
@@ -99,14 +100,44 @@ export default function CoachingOfferings() {
             aria-hidden={!isExpanded}
           >
             <div className="max-w-6xl mx-auto text-lg space-y-6 text-left">
-              <h4 className="font-medium text-gray-900 mb-3 text-lg">Embodiment & Heilung</h4>
               {services[1].dropdownContent}
+              <div className="prose prose-pink max-w-none">
+                <p className="text-lg text-gray-700 mb-6">
+                  Durch „Embodiment“ lernst du:
+                </p>
+                <ul className="space-y-4 text-gray-700 list-none pl-0">
+                  <li className="flex items-start">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-700 font-medium text-sm mr-3 flex-shrink-0">•</span>
+                    <span>KörperBewusstSein und Körperpräsenz zu entwickeln und dich sicher zu fühlen im eigenen Körper</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-700 font-medium text-sm mr-3 flex-shrink-0">•</span>
+                    <span>Emotionale Resilienz und Selbstregulierung, in dem du deine Gefühle bewusst da sein lässt und wahrnimmst anstatt sie zu unterdrücken</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-700 font-medium text-sm mr-3 flex-shrink-0">•</span>
+                    <span>Ein positives Selbstbild zu entwickeln und zu verkörpern und dein Vertrauen in dich und das Leben zu stärken</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-700 font-medium text-sm mr-3 flex-shrink-0">•</span>
+                    <span>Klare und gesunde Grenzen zu setzen</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-700 font-medium text-sm mr-3 flex-shrink-0">•</span>
+                    <span>Dich mit deiner weiblichen Kraft zu verbinden und im Einklang mit deinem Zyklus zu leben</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-700 font-medium text-sm mr-3 flex-shrink-0">•</span>
+                    <span>Negative, limitierende Glaubenssätze zu transformieren und dich für neue Möglichkeiten zu öffnen</span>
+                  </li>
+                </ul>
+              </div>
               <div className="mt-8 text-center">
                 <a 
                   href="/dienstleistungen/spiritual#embodiment-und-heilung"
                   className="inline-flex items-center px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-pink-600 to-pink-600 rounded-full hover:from-pink-700 hover:to-pink-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
-                  <span className="mr-2">Mehr über Embodiment & Heilung</span>
+                  <span className="mr-2">Mehr über Körperzentriertes Coaching</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -139,41 +170,21 @@ export default function CoachingOfferings() {
               <div className="h-12 w-1.5 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full mr-4"></div>
               <h3 className="text-2xl font-medium text-gray-900">Spirituelles Life Coaching</h3>
             </div>
-            <p className="text-gray-700 mb-4">Unterstützt Frauen dabei:</p>
-            <ul className="space-y-3 text-gray-800">
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Sich selbst besser kennenzulernen und Selbstzweifel zu transformieren</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Eine eigene spirituelle Praxis und innere Verbindung aufzubauen</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Empowerment, Freude und Leichtigkeit zu spüren durch loslassen von Angst, Scham und Schuldgefühlen</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Sinn und Bestimmung im Leben zu finden</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Beziehungen authentischer zu leben</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Einschneidende Veränderungen im Leben zu meistern</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Spiritualität im Alltag und im Job zu integrieren</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Eine gesunde Work-Life Balance zu etablieren und einem Burnout vorzubeugen</span>
-              </li>
-            </ul>
+            <p className="text-gray-700 mb-4 text-lg">Unterstützt Frauen dabei:</p>
+            <CollapsibleBulletList 
+              items={[
+                "Sich selbst besser kennenzulernen und Selbstzweifel zu transformieren",
+                "Eine eigene spirituelle Praxis und innere Verbindung aufzubauen",
+                "Empowerment, Freude und Leichtigkeit zu spüren durch loslassen von Angst, Scham und Schuldgefühlen",
+                "Sinn und Bestimmung im Leben zu finden",
+                "Beziehungen authentischer zu leben",
+                "Einschneidende Veränderungen im Leben zu meistern",
+                "Spiritualität im Alltag und im Job zu integrieren",
+                "Eine gesunde Work-Life Balance zu etablieren und einem Burnout vorzubeugen"
+              ]}
+              initialVisibleCount={4}
+              bulletColor="pink-600"
+            />
           </div>
 
           {/* ED Recovery Coaching */}
@@ -182,29 +193,18 @@ export default function CoachingOfferings() {
               <div className="h-12 w-1.5 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full mr-4"></div>
               <h3 className="text-2xl font-medium text-gray-900">Coaching für Essstörungen und ED-Recovery</h3>
             </div>
-            <p className="text-gray-700 mb-4">Unterstützt Frauen bei:</p>
-            <ul className="space-y-3 text-gray-800">
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Bulimie, Binge Eating oder Magersucht und dem individuellen Weg in die Heilung und Recovery</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Emotionalem Essverhalten und Unwohlsein im eigenen Körper</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Entwicklung eines positiven Selbstbildes, Körperwahrnehmung und -Akzeptanz</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Familiensystem-Heilung bei Essstörungen</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-pink-600 mr-3">•</span>
-                <span>Die eigene Identität abseits der Essstörung zu erforschen und zu verkörpern</span>
-              </li>
-            </ul>
+            <p className="text-gray-700 mb-4 text-lg">Unterstützt Frauen mit Essstörungen dabei:</p>
+            <CollapsibleBulletList 
+              items={[
+                "Bulimie, Binge Eating oder Magersucht und dem individuellen Weg in die Heilung und Recovery",
+                "Emotionalem Essverhalten und Unwohlsein im eigenen Körper",
+                "Entwicklung eines positiven Selbstbildes, Körperwahrnehmung und -Akzeptanz",
+                "Familiensystem-Heilung bei Essstörungen",
+                "Die eigene Identität abseits der Essstörung zu erforschen und zu verkörpern"
+              ]}
+              initialVisibleCount={3}
+              bulletColor="pink-600"
+            />
           </div>
         </div>
 

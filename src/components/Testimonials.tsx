@@ -8,14 +8,16 @@ import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon, ChevronUpIcon } fro
 const TESTIMONIALS = [
   {
     quote: "Carinas positive Ausstrahlung und starke Energie beeindruckt mich immer wieder. In unseren Sessions ist sie spürbar zu 100% präsent.",
-    fullText: `Ich hatte meine 1. Session bei mir Zuhause, weil ich gerne in meinem gewohnten Umfeld sein wollte und mich da einfach sicherer gefühlt habe. Carina fragte sehr einfühlsam, aber auch fokussiert nach, was mich meiner ambivalenten Haltung zu meinem Frausein liebevoll näher brachte. Gemeinsam erarbeiteten wir in dem Vorgespräch mein Anliegen sehr präzise und deutlich heraus: „Wie kann ich in liebevoller Verbundenheit mit dem eigenen Frausein durch mein Leben gehen?“ Der Prozess hat mich zu überraschenden, aber auch emotional bewegenden Momenten geführt.`,
-    author: "Carmen, 61",
-    role: "Coaching-Klientin",
-    coachingType: "Spiritual Life Coaching"
+    fullText: `Ich hatte meine 1. Session bei mir Zuhause, weil ich gerne in meinem gewohnten Umfeld sein wollte und mich da einfach sicherer gefühlt habe. Carina fragte sehr einfühlsam, aber auch fokussiert nach, was mich meiner ambivalenten Haltung zu meinem Frausein liebevoll näher brachte. Gemeinsam erarbeiteten wir in dem Vorgespräch mein Anliegen sehr präzise und deutlich heraus: „Wie kann ich in liebevoller Verbundenheit mit dem eigenen Frausein durch mein Leben gehen?“ Der Prozess hat mich zu überraschenden, aber auch emotional bewegenden Momenten geführt.
+
+Ich war erstaunt, dass es mir so leicht gefallen ist, mich mit meinen verschiedenen Anteilen und Haltungen klar zu verbinden und ins Fühlen zu kommen. Normalerweise hat mein kontrollierender vernünftiger Anteil das Sagen, so dass der intuitive fühlende, weibliche Anteil oft unterdrückt ist. Das konnte ich in dieser Session sehr klar und bewusst erleben und durch eine wertschätzende, würdigende Haltung konnten sich die beiden Anteile in mir annähern.
+
+Carina hat den Raum während des Prozesses wunderbar gehalten. Ich fühlte mich sicher geführt und emotional warm begleitet. Sodass ich mich zuletzt meinem weiblichen, fühlenden und verletzlichen Anteil in Neugierde und mit Wärme öffnen konnte. Ich durft für mich spüren, dass es sicher ist, mich in meiner Verletzlichkeit zu zeigen. Für mich noch sehr neu und ungewohnt, aber wunderschön. Diese Erfahrung hat sich durch das bewusste Zulassen und Fühlen in meinem Körper verankert. Ich konnte mich durch die Arbeit mit Carina bewusst dafür öffnen und bin sehr dankbar für diese neue, noch zarte Verbindung zu meiner Weiblichkeit und Sanftheit.`,
+    author: "Carmen, 61"
   },
   {
     quote: "Das Coaching mit Carina war für mich ein ganz besonderer Prozess. Mein Anliegen und Ziel war es mich besser abgrenzen zu können, vor allem in der Beziehung zu meinen Eltern.",
-    fullText: `Das Coaching mit Carina war für mich ein ganz besonderer Prozess. Mein Anliegen und Ziel war es mich besser abgrenzen zu können, vor allem in der Beziehung zu meinen Eltern und mir generell zu erlauben mehr Raum einzunehmen in meinem Leben für mich und meine Bedürfnisse. In den Sitzungen durfte ich mich auf eine neue, tiefere Weise mit mir selbst verbinden. Carina hat einen sicheren Container geschaffen, in dem alles da sein durfte: leise Zweifel, alte Verletzungen, aber auch meine Stärke, mein Mut und mein Wunsch nach Entwicklung. Ich habe mich in diesem Raum sehr gesehen und verstanden gefühlt – als ganzer Mensch, mit allem, was da ist.
+    fullText: `In den Sitzungen durfte ich mich auf eine neue, tiefere Weise mit mir selbst verbinden. Carina hat einen sicheren Container geschaffen, in dem alles da sein durfte: leise Zweifel, alte Verletzungen, aber auch meine Stärke, mein Mut und mein Wunsch nach Entwicklung. Ich habe mich in diesem Raum sehr gesehen und verstanden gefühlt – als ganzer Mensch, mit allem, was da ist.
 
 Besonders berührt hat mich, wie ich im Laufe des Coachings eine tiefe, innere Entschlossenheit spüren konnte – nicht nur im Kopf, sondern auch im Herzen und im Bauch. Obwohl ich dazu neige, viel im Kopf zu sein, hat Carina es geschafft, auch meine Körper- und Energieebene achtsam mit einzubeziehen. Ich weiß jetzt, dass diese Stärke in mir da ist, und ich probiere, mich im Alltag immer wieder bewusst mit ihr zu verbinden. Das hilft mir ganz konkret dabei, meine Grenzen klarer wahrzunehmen und in meinen Beziehungen achtsamer für mich einzustehen und meine Bedürfnisse offen zu kommunizieren. Auch gegenüber meinen Eltern.
 
@@ -27,11 +29,21 @@ Carina hat mich darin bestärkt, mich auch verletzlich zu zeigen – in einem Ra
     coachingType: "Spiritual Life Coaching"
   },
   {
-    quote: "Mit Carina fühlte ich mich sofort wohl und sicher. Sie schafft einen Raum, in dem ich mich vollkommen frei gefühlt habe.",
-    fullText: "Ich hatte ein Thema mit meiner Mama, eine der wichtigsten und stärksten Frauen in meinem Leben. Carina hat es mit ihrer Art und Art zu arbeiten geschafft, dass ich mich komplett entspannen und frei machen konnte von allen Alltagsgedanken.",
-    author: "Christina, 43",
-    role: "Coaching-Klientin",
-    coachingType: "Spiritual Life Coaching"
+    quote: "Ich bin zu Carina gegangen, weil ich seit Langem mit einem Thema fast täglich konfrontiert war. Ich hatte das Gefühl, dass mir dieses Thema im Alltag immer wieder begegnet.",
+    fullText: `Je mehr ich versuchte, es loszulassen, desto mehr wiederholte es sich. Das hat mich sehr angestrengt, und ich fühlte mich dadurch oft eingeschränkt und fremdgesteuert. Ich wollte mich endlich von dieser Hürde befreien.
+
+Ich bin mit gemischten Gefühlen zum Coaching gegangen: einerseits wollte ich mir helfen lassen, andererseits wusste ich wirklich nicht, wo ich anfangen sollte. Carina hat mir von Anfang an einen Weg gezeigt. Meine Unklarheit hat sie genutzt, um mich Schritt für Schritt aus der Verwirrung und Frustration herauszuholen. Keine 30 Minuten nach Beginn der Session saß ich plötzlich vor einer klaren Zusammenfassung meiner inneren Überzeugungen. Das Formulieren des konkreten Anliegens hat mir geholfen, mein Ziel direkt vor Augen zu behalten und mich energetisch damit zu verbinden.
+
+Und dann ging es richtig los. Durch eine klare Struktur – und vor allem durch Carinas liebevolle Begleitung und ihre diskrete Unterstützung – stand ich da, in einer ehrlichen und mutigen Auseinandersetzung mit meinen Gefühlen. Es war wunderschön, die Verbindung zu meinem Körper zu spüren, meine inneren Hindernisse wahrzunehmen, mit meinem Atem in Einklang zu sein – ganz mit mir verbunden zu sein.
+
+Jeden Anteil in mir, der in diesen wiederkehrenden Situationen entsteht, in die Augen zu schauen, hat sich angefühlt, als hätte ich den Ariadnefaden gefunden, um meinen Weg durch das innere Labyrinth zu finden.
+
+Ich habe diese Step-by-Step-Reise sehr genossen. Auch wenn der Weg sehr intensiv war, weil ich meine inneren Widerstände deutlich im Körper spüren konnte und es für mich auch neu und ungewohnt war, mich so verletzlich zeigen zu können, war Carinas wertvolle Anleitung jedes Mal wie ein Anker, der mich zurück zu mir selbst geführt hat.
+
+Ich bin aus dem Coaching gegangen mit dem Gefühl, in Frieden mit all meinen inneren Anteilen Hand in Hand weiterzugehen. Frieden zu schließen – vor allem mit dem Bewusstsein, wer ich wirklich bin und was ich nicht mehr brauche.
+
+Danke, liebe Carina, für diese wertvolle, tiefe Erfahrung, die mein Leben verändern kann.`,
+    author: "Christina, 43"
   },
   {
     quote: "Kurz vor einem Burnout habe ich den Weg zu Carina gefunden und mich für ein Online Coaching Packet angemeldet.",
@@ -72,33 +84,13 @@ Carina hat es mir ermöglicht, dass ich mutig in mich hinein gefühlt habe und G
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const visibleTestimonials = 3;
-  const totalTestimonials = TESTIMONIALS.length;
-  // Calculate the number of groups
-  const totalGroups = Math.ceil(TESTIMONIALS.length / visibleTestimonials);
-  // Calculate the start index of the current group
-  const currentGroup = Math.floor(currentIndex / visibleTestimonials);
-
-  // Show 3 testimonials on the first page, 3 on the second
-  const getVisibleTestimonials = () => {
-    if (currentIndex === 0) {
-      return TESTIMONIALS.slice(0, 3); // First 3 testimonials
-    } else {
-      return TESTIMONIALS.slice(3); // Last 3 testimonials
-    }
-  };
-
-  const nextTestimonial = () => {
-    setCurrentIndex(prev => prev === 0 ? 3 : 0);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex(prev => prev === 0 ? 3 : 0);
+  const toggleExpand = (index: number) => {
+    setExpandedTestimonial(expandedTestimonial === index ? null : index);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -122,11 +114,9 @@ export default function Testimonials() {
   const testimonials = [
     {
       quote: "Carinas positive Ausstrahlung und starke Energie beeindruckt mich immer wieder. In unseren Sessions ist sie spürbar zu 100% präsent.",
-      fullText: `Ich war erstaunt, dass es mir so leicht gefallen ist, mich mit meinen verschiedenen Anteilen und Haltungen klar zu verbinden und ins Fühlen zu kommen. Normalerweise hat mein kontrollierender vernünftiger Anteil das Sagen, so dass der intuitive fühlende, weibliche Anteil oft unterdrückt ist. Das konnte ich in dieser Session sehr klar und bewusst erleben und durch eine wertschätzende, würdigende Haltung konnten sich die beiden Anteile in mir annähern.
+      fullText: `Ich hatte meine 1.Session bei mir Zuhause, weil ich gerne in meinem gewohnten Umfeld sein wollte und mich da einfach sicherer gefühlt habe. Carina fragte sehr einfühlsam, aber auch fokussiert nach, was mich meiner ambivalenten Haltung zu meinem Frausein liebevoll näher brachte. Gemeinsam erarbeiteten wir in dem Vorgespräch mein Anliegen sehr präzise und deutlich heraus: „Wie kann ich in liebevoller Verbundenheit mit dem eigenen Frausein durch mein Leben gehen?“ Der Prozess hat mich zu überraschenden, aber auch emotional bewegenden Momenten geführt. Ich war erstaunt, dass es mir so leicht gefallen ist, mich mit meinen verschiedenen Anteilen und Haltungen klar zu verbinden und ins Fühlen zu kommen. Normalerweise hat mein kontrollierender vernünftiger Anteil das Sagen, so dass der intuitive fühlende, weibliche Anteil oft unterdrückt ist. Das konnte ich in dieser Session sehr klar und bewusst erleben und durch eine wertschätzende, würdigende Haltung konnten sich die beiden Anteile in mir annähern. 
 
-Carina hat den Raum während des Prozesses wunderbar gehalten. Ich fühlte mich sicher geführt und emotional warm begleitet. Sodass ich mich zuletzt meinem weiblichen, fühlenden und verletzlichen Anteil in Neugierde und mit Wärme öffnen konnte. Ich durfte für mich spüren, dass es sicher ist, mich in meiner Verletzlichkeit zu zeigen. Für mich noch sehr neu und ungewohnt, aber wunderschön.
-
-Diese Erfahrung hat sich durch das bewusste Zulassen und Fühlen in meinem Körper verankert. Ich konnte mich durch die Arbeit mit Carina bewusst dafür öffnen und bin sehr dankbar für diese neue, noch zarte Verbindung zu meiner Weiblichkeit und Sanftheit.`,
+Carina hat den Raum während des Prozesses wunderbar gehalten. Ich fühlte mich sicher geführt und emotional warm begleitet. Sodass ich mich zuletzt meinem weiblichen, fühlenden und verletzlichen Anteil in Neugierde und mit Wärme öffnen konnte. Ich durfte für mich spüren, dass es sicher ist, mich in meiner Verletzlichkeit zu zeigen. Für mich noch sehr neu und ungewohnt, aber wunderschön. Diese Erfahrung hat sich durch das bewusste Zulassen und Fühlen in meinem Körper verankert. Ich konnte mich durch die Arbeit mit Carina bewusst dafür öffnen und bin sehr dankbar für diese neue, noch zarte Verbindung zu meiner Weiblichkeit und Sanftheit.`,
       author: "Carmen, 61",
       role: "Coaching-Klientin",
       coachingType: "Spiritual Life Coaching"
@@ -164,93 +154,119 @@ Diese Erfahrung hat sich durch das bewusste Zulassen und Fühlen in meinem Körp
     }
   ];
 
+  // Calculate visible testimonials based on current index
+  const getVisibleTestimonials = () => {
+    const startIndex = currentIndex * 3 % TESTIMONIALS.length;
+    const endIndex = startIndex + 3;
+    
+    if (endIndex <= TESTIMONIALS.length) {
+      return TESTIMONIALS.slice(startIndex, endIndex);
+    } else {
+      return [
+        ...TESTIMONIALS.slice(startIndex),
+        ...TESTIMONIALS.slice(0, endIndex % TESTIMONIALS.length)
+      ];
+    }
+  };
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % Math.ceil(TESTIMONIALS.length / 3));
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? Math.ceil(TESTIMONIALS.length / 3) - 1 : prevIndex - 1
+    );
+  };
+
   return (
-    <section className="py-16 bg-white relative">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Was meine Klientinnen sagen
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+            Was <span className="font-medium">meine Klientinnen</span> sagen
           </h2>
         </div>
         
-        <div className="relative px-8 md:px-12 lg:px-16">
+        <div className="relative">
           {/* Left Arrow */}
-          <button 
+          <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 md:-ml-4 bg-white rounded-full p-2 md:p-3 shadow-lg hover:bg-gray-100 transition-colors z-20 border border-gray-200"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 p-2 rounded-full bg-white shadow-md text-pink-600 hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-pink-500 z-10"
             aria-label="Previous testimonial"
           >
-            <ChevronLeftIcon className="h-6 w-6 md:h-8 md:w-8 text-gray-700" />
+            <ChevronLeftIcon className="h-6 w-6" />
           </button>
-          
-          <div 
-            className="relative overflow-hidden"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            ref={carouselRef}
-          >
-            <div 
-              ref={carouselRef}
-              className="w-full transition-transform duration-500 ease-in-out"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {getVisibleTestimonials().map((testimonial, index) => (
-                <div key={index} className="w-full">
-                  <div className="bg-gray-50 p-6 rounded-2xl h-full flex flex-col">
-                    <div className="space-y-4 flex-1 flex flex-col">
-                      <div className="flex items-center justify-between">
-                        <div className="text-base font-medium text-gray-800">
-                          {testimonial.author}
-                        </div>
-                        <div className="flex">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <StarIcon key={star} className="h-4 w-4 md:h-5 md:w-5 text-yellow-400" />
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="flex-1">
-                        <p className="text-gray-600 italic">"{testimonial.quote}"</p>
-                      </div>
-                    </div>
+
+          {/* Carousel */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {getVisibleTestimonials().map((testimonial, index) => (
+              <div key={`${currentIndex}-${index}`} className="bg-gray-50 p-8 rounded-2xl hover:shadow-md transition-shadow duration-300 relative">
+                {/* Name in top right corner */}
+                <div className="absolute top-4 right-4 text-right">
+                  <div className="font-medium text-gray-900">
+                    {testimonial.author}
                   </div>
                 </div>
-                ))}
+                
+                <div className="flex mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <StarIcon key={star} className="h-5 w-5 text-yellow-400" />
+                  ))}
+                </div>
+                
+                <blockquote className="text-lg text-gray-700 italic mb-4 pr-16">
+                  "{testimonial.quote}"
+                </blockquote>
+                
+                {expandedTestimonial === index ? (
+                  <div className="mt-4">
+                    <p className="text-gray-700 whitespace-pre-line">{testimonial.fullText}</p>
+                    <button 
+                      onClick={() => toggleExpand(index)}
+                      className="mt-3 text-pink-600 hover:text-pink-800 text-sm font-medium flex items-center"
+                    >
+                      Weniger anzeigen
+                      <ChevronUpIcon className="ml-1 h-4 w-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <button 
+                    onClick={() => toggleExpand(index)}
+                    className="text-pink-600 hover:text-pink-800 text-sm font-medium flex items-center mt-2"
+                  >
+                    Mehr lesen
+                    <ChevronDownIcon className="ml-1 h-4 w-4" />
+                  </button>
+                )}
+                
+                {/* Removed coaching type */}
               </div>
-            </div>
+            ))}
           </div>
           
           {/* Right Arrow */}
-          <button 
+          <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 md:-mr-4 bg-white rounded-full p-2 md:p-3 shadow-lg hover:bg-gray-100 transition-colors z-20 border border-gray-200"
+            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 p-2 rounded-full bg-white shadow-md text-pink-600 hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-pink-500 z-10"
             aria-label="Next testimonial"
           >
-            <ChevronRightIcon className="h-6 w-6 md:h-8 md:w-8 text-gray-700" />
+            <ChevronRightIcon className="h-6 w-6" />
           </button>
-          
-          {/* Dot Indicators */}
-          <div className="flex justify-center mt-8 space-x-3 items-center">
+        </div>
+        
+        {/* Dot Indicators */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {Array.from({ length: Math.ceil(TESTIMONIALS.length / 3) }).map((_, index) => (
             <button
-              onClick={() => setCurrentIndex(0)}
-              className={`rounded-full transition-all duration-300 ${
-                currentIndex === 0 
-                  ? 'w-3.5 h-3.5 bg-pink-600' 
-                  : 'w-2.5 h-2.5 bg-gray-300'
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                currentIndex === index ? 'bg-pink-600 w-8' : 'bg-gray-300'
               }`}
-              aria-label="Go to first page"
+              aria-label={`Go to page ${index + 1}`}
             />
-            <button
-              onClick={() => setCurrentIndex(3)}
-              className={`rounded-full transition-all duration-300 ${
-                currentIndex === 3 
-                  ? 'w-3.5 h-3.5 bg-pink-600' 
-                  : 'w-2.5 h-2.5 bg-gray-300'
-              }`}
-              aria-label="Go to second page"
-            />
-          </div>
+          ))}
         </div>
       </div>
     </section>

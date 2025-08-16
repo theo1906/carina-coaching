@@ -42,8 +42,6 @@ export default function Home() {
                     <p className="font-medium text-pink-800 mb-3">Meine spirituelle Reise</p>
                     <ul className="space-y-3">
                       {[
-                        'Transformation durch radikale Ehrlichkeit und Selbstannahme',
-                        'Entdeckung meines inneren Lichts',
                         'Tiefe Verbindung zur Weisheit des Körpers',
                         'Integration spiritueller Praktiken in den Alltag',
                         'Begleitung anderer auf ihrem Weg der Persönlichkeitsentwicklung'
@@ -60,7 +58,7 @@ export default function Home() {
 
                   <div className="bg-white/90 p-8 rounded-2xl shadow-lg border border-pink-100">
                     <p className="text-gray-700 leading-relaxed">
-                      Aus meiner eigenen fast 30-jährigen Reise der Krankheit, Genesung und Transformation kann ich mit dir mitfühlen, welchen Mut es erfordert, Heilung zu suchen. Ich verstehe, wo du herkommst, weil ich es selbst erlebt habe. Ich bin bei dir, um dich auf deinem Weg zu begleiten. Meine eigene spirituelle Heilungsreise hat mich gelehrt, wie lebensverändernd es ist, sich selbst mit radikaler Ehrlichkeit zu begegnen, die innere Weisheit zu entdecken und die tiefe Verbindung zwischen Körper, Seele und Geist zu erkennen.
+                      Aus meiner fast 30-jährigen Reise durch Krankheit, Heilung und Transformation weiß ich, wie viel Mut es braucht, sich auf den Weg der Heilung zu machen. Ich verstehe dich, weil ich es selbst erlebt habe, und begleite dich gern auf deinem Weg. Meine spirituelle Reise hat mir gezeigt, wie tiefgreifend es ist, sich mit radikaler Ehrlichkeit zu begegnen, die innere Weisheit zu entdecken und die Verbindung von Körper, Seele und Geist zu erkennen.
                     </p>
                     <div className="flex items-center space-x-4 mt-6">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-100 to-pink-50 p-2">
@@ -155,7 +153,7 @@ export default function Home() {
                   </p>
                   <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-purple-400 mb-6"></div>
                   <p className="text-gray-700 mb-10 text-lg">
-                    Verbinde dich mit deiner weiblichen Essenz, entdecke deine Spiritualität und lebe dein wahres Potential – durch körperorientiertes, spirituelles Coaching.
+                    Verbinde dich mit deiner weiblichen Essenz, entdecke deine Spiritualität und lebe dein wahres Potential – durch körperzentriertes, spirituelles Coaching.
                   </p>
                   <div className="space-y-5 mt-6">
                     <ExpandableBulletPoint 
@@ -223,7 +221,7 @@ export default function Home() {
                     />
                     <ExpandableBulletPoint 
                       index={3}
-                      title="Körper-Verbundenheit und Selbstfürsorge"
+                      title="Körperverbundenheit und Selbstfürsorge"
                       content="Du lernst, dich mit der Weisheit deines Körpers zu verbinden, gesunde Grenzen zu setzen und die Selbstliebe und Fürsorge für dich zu empfinden, die nachhaltige Heilung ermöglicht."
                       color="purple"
                     />

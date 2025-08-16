@@ -2,8 +2,8 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Embodiment & Heilung | Carina Göb',
-  description: 'Entdecke, wie du durch Embodiment und Heilung wieder in Verbindung mit deinem Körper kommst und dein volles Potenzial entfaltest.',
+  title: 'Körperzentriertes Coaching | Carina Göb',
+  description: 'Entdecke, wie du durch körperzentriertes Coaching wieder in Verbindung mit deinem Körper kommst und dein volles Potenzial entfaltest.',
 };
 
 export default function EmbodimentUndHeilungPage() {

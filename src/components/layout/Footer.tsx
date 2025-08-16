@@ -140,7 +140,7 @@ export default function Footer() {
                               href="/dienstleistungen/embodiment-und-heilung"
                               className="text-neutral-500 hover:text-primary-600 transition-colors duration-300"
                             >
-                              Embodiment & Heilung
+                              Körperzentriertes Coaching
                             </Link>
                           </>
                         ) : (
